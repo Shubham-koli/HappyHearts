@@ -20,7 +20,7 @@ let data = {
     "firstName": "shubham",
     "lastName": "koli",
     "Dob": "31/10/1995",
-    "BloodGroup": "B+",
+    "BloodGroup": "B-",
     "Gender": "M",
     "address": "Solapur",
     "pincode": ""
