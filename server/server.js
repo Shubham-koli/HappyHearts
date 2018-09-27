@@ -15,6 +15,16 @@ const {
 const {
     decryptUsingPrivateKey
 } = require("./EHR/decryption/EHR-Decrypt");
+const {
+    createNewPatient
+} = require("./routes/postPatient");
+const {
+    getPatient,
+    getPatientData
+} = require("./routes/getPatient");
+const {
+    createPatientEntry
+} = require("./EHR/MongoDB/storeKey");
 
 var app = express();
 app.use(bodyParser.json());
@@ -27,6 +37,8 @@ app.post('/encrypt', (req, res) => {
             console.log('Object Successfully Encrypted');
             res.send(encryptedObj);
         });
+    }).catch((err) => {
+        console.log(err);
     });
 });
 
@@ -41,6 +53,42 @@ app.get("/decrypt", (req, res) => {
     })
 });
 
-app.listen(3000, () => {
-    console.log("Started on port 3000");
+app.get("/getpatient/:id", (req, res) => {
+    let AadharNo = req.params.id;
+    getPatient(AadharNo).then((result) => {
+        console.log("decrypt using Fabric Key");
+        decryptUsingFABRIC_KEY(result).then((result1) => {
+            console.log("decrypt using Private Key");
+            decryptUsingPrivateKey(result1).then((decryptedObj) => {
+                console.log("Object Successfully Decrypted");
+                res.send(decryptedObj);
+            });
+        });
+    }).catch((err) => {
+        console.log(err);
+    });
+});
+
+app.post("/newpatient", (req, res) => {
+    console.log(req.body.AdharNo);
+    createPatientEntry(req.body.AdharNo).then((doc) => {
+        console.log('New Patient Entry in MongoDB Created');
+        console.log("encrypting using Private key")
+        encryptUsingPrivateKey(req.body).then((result) => {
+            console.log('encrypting using Fabric key');
+            encryptUsingFABRIC_KEY(result).then((encryptedObj) => {
+                console.log('Object Successfully Encrypted');
+                createNewPatient(encryptedObj).then((response) => {
+                    console.log(response);
+                    res.sendStatus(response);
+                });
+            });
+        });
+    }).catch((err) => {
+        console.log(err);
+    });
+});
+
+app.listen(4000, () => {
+    console.log("Started on port 4000");
 });
