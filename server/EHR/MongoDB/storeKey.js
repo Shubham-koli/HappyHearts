@@ -57,7 +57,7 @@ let saveToDB = (privatekey, AadharNo) => {
     })
 }
 
-let createNewPatient = (AadharNo) => {
+let createPatientEntry = (AadharNo) => {
     return new Promise((resolve, reject) => {
         if (AadharNo === undefined || AadharNo === null) {
             reject('Invalid Aadhar No while Creating Patient');
@@ -69,6 +69,8 @@ let createNewPatient = (AadharNo) => {
                 }, (errorMessage) => {
                     console.log('some error happened while creating new private key for the user');
                     reject(err);
+                }).catch((err) => {
+                    console.log('Error in Promise SaveToDB');
                 });
             }, (errorMessage) => {
                 console.log('some error happened while creating private key');
@@ -86,5 +88,5 @@ let createNewPatient = (AadharNo) => {
 module.exports = {
     saveToDB, //saves privatekey pair and AadharNo in the MongoDB database
     createPrivateKey, // Creates New PrivateKey
-    createNewPatient // Input is Aadhar ID. It creates New  record for Patient and Primary key in the MongoDB
+    createPatientEntry // Input is Aadhar ID. It creates New  record for Patient and Primary key in the MongoDB
 };

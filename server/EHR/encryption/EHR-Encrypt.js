@@ -30,6 +30,8 @@ let encryptUsingPrivateKey = (data) => {
                 // console.log(obj);
                 resolve(obj);
             })
+        }).catch((err) => {
+            console.log('error while getting private key of that user (EHR-Encrypt.js)');
         })
     });
 }
