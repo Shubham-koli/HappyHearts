@@ -62,5 +62,5 @@ let ReplaceWithCipher = (data, key, res) => {
 
 module.exports = {
     encrypt_promise,
-    encryptObject
+    encryptObject // it takes data and CIPHER KEY and ENCRYPTS IT.
 }
