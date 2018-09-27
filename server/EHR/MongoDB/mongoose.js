@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 const MONGODB_URL = process.env.MONGODB_URL;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`${MONGODB_URL}`, {
+mongoose.connect(`mongodb://localhost:27017/UserKeys`, {
     useNewUrlParser: true
 }, (err) => {
     if (err) {
