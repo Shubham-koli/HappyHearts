@@ -76,7 +76,7 @@ let createNewPatient = (AadharNo) => {
         }
     })
 }
-createNewPatient('123').then((res) => console.log(res));
+// createNewPatient('123').then((res) => console.log(res));
 // saveToDB(generatedkey, '7709296441').then((res) => {
 //     console.log(res);
 // }, (err) => {
