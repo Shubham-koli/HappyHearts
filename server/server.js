@@ -25,6 +25,10 @@ const {
 const {
     createPatientEntry
 } = require("./EHR/MongoDB/storeKey");
+const {
+    createPatientData, // it creates new Asset of PatientData (Patient's Treatment's history) 
+    createAccessRecord
+} = require("./routes/createAssets");
 
 var app = express();
 app.use(bodyParser.json());
@@ -71,6 +75,22 @@ app.get("/getpatient/:id", (req, res) => {
 
 app.post("/newpatient", (req, res) => {
     console.log(req.body.AdharNo);
+    createPatientData(req.body.AdharNo).then((res) => {
+        console.log("PatientData Asset Created");
+    }, (err) => {
+        console.log("Error while Creating PatientData");
+    }).catch((err) => {
+        console.log("Error while Creating PatientData");
+    });
+
+    createAccessRecord(req.body.AdharNo).then((res) => {
+        console.log("AccessRecord Asset Created");
+    }, (err) => {
+        console.log("Error while Creating PatientData");
+    }).catch((err) => {
+        console.log("Error while Creating PatientData");
+    });
+
     createPatientEntry(req.body.AdharNo).then((doc) => {
         console.log('New Patient Entry in MongoDB Created');
         console.log("encrypting using Private key")
