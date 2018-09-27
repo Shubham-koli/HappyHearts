@@ -3,7 +3,7 @@ require("dotenv").config();
 const REST_URL = 'http://localhost:3000/api';
 const axios = require("axios");
 
-
+//get patient from blockchain
 let getPatient = (AadharNo) => {
     return new Promise((resolve, reject) => {
         axios.get(`${REST_URL}/org.example.basic.Patient/${AadharNo}`)
