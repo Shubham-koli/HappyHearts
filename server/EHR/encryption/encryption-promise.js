@@ -18,7 +18,7 @@ let encrypt_promise = (str, key) => {
 }
 
 
-let encryptObject = (data, FABRIC_KEY) => {
+let encryptObject = (data, CIPHER_KEY) => {
     return new Promise((resolve, reject) => {
         for (let key in data) {
             if (data.hasOwnProperty(key)) {
@@ -27,7 +27,7 @@ let encryptObject = (data, FABRIC_KEY) => {
 
                 } else {
                     let val = data[key];
-                    encrypt_promise(val, FABRIC_KEY).then((res) => {
+                    encrypt_promise(val, CIPHER_KEY).then((res) => {
                         ReplaceWithCipher(data, key, res).then((res) => {
 
                         }, (errorMessage) => {

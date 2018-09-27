@@ -18,7 +18,7 @@ let decrypt_promise = (str, key) => {
     })
 }
 
-let decryptObject = (data, FABRIC_KEY) => {
+let decryptObject = (data, CIPHER_KEY) => {
     return new Promise((resolve, reject) => {
         for (let key in data) {
             if (data.hasOwnProperty(key)) {
@@ -27,7 +27,7 @@ let decryptObject = (data, FABRIC_KEY) => {
 
                 } else {
                     let val = data[key];
-                    decrypt_promise(val, FABRIC_KEY).then((res) => {
+                    decrypt_promise(val, CIPHER_KEY).then((res) => {
                         ReplaceWithCipher(data, key, res).then((res) => {
 
                         }, (errorMessage) => {
