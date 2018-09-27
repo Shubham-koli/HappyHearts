@@ -11,23 +11,6 @@ mongoose.connect(`${MONGODB_URL}`, {
     }
 });
 
-let saveToDB = (privatekey, adharNo) => {
-    return new Promise((resolve, reject) => {
-        let newKey = new keyModel({
-
-            privateKey: generatedkey
-        });
-        newKey.save().then(
-            doc => {
-                resolve(doc);
-            },
-            err => {
-                console.log(err);
-                reject(err);
-            }
-        );
-    })
-}
 
 module.exports = {
     mongoose
