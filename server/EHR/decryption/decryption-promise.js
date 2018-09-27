@@ -23,7 +23,7 @@ let decryptObject = (data, CIPHER_KEY) => {
         for (let key in data) {
             if (data.hasOwnProperty(key)) {
 
-                if (key == '$class' || key == 'AdharNo') {
+                if (key == '$class' || key == 'AdharNo' || key == 'EHR_ID') {
 
                 } else {
                     let val = data[key];
