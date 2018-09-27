@@ -31,6 +31,7 @@ let treatmentData = {
 //         console.log(error);
 //     });
 
+// it creates new patient entry in blockhain
 let createNewPatient = (data) => {
     return new Promise((resolve, reject) => {
         axios.post(`${REST_URL}/org.example.basic.Patient`, data)
