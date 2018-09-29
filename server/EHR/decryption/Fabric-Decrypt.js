@@ -25,7 +25,7 @@ let decryptUsingFABRIC_KEY = data => {
     });
   });
 };
-
+//Promise to  decrypt the treatment details
 let decrypt_TreatmentDetails_UsingFabricKey = data => {
   return new Promise((resolve, reject) => {
     decrypt_patientData(data, FABRIC_KEY).then(res => {
