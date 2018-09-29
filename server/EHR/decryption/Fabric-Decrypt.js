@@ -1,10 +1,9 @@
 require("dotenv").config();
-const {
-    decryptObject
-} = require("./decryption-promise");
+const { decryptObject } = require("./decryption-promise");
 
+const { decrypt_patientData } = require("./patientData-decrypt");
 
-const FABRIC_KEY = process.env.FABRIC_KEY
+const FABRIC_KEY = process.env.FABRIC_KEY;
 
 // let data = {
 //     '$class': 'org.example.basic.Patient',
@@ -18,18 +17,28 @@ const FABRIC_KEY = process.env.FABRIC_KEY
 //     pincode: 'U2FsdGVkX19Pza3HNR71RQZjF6SPwEwuPYlrAt72PeyklrvN2EktobWdw4T/I4tKjOAvkRfEY55avaaxjyzzdw=='
 // };
 
-let decryptUsingFABRIC_KEY = (data) => {
-    return new Promise((resolve, reject) => {
-        decryptObject(data, FABRIC_KEY).then((res) => {
-            // console.log(res);
-            resolve(res);
-        });
-    })
-}
+let decryptUsingFABRIC_KEY = data => {
+  return new Promise((resolve, reject) => {
+    decryptObject(data, FABRIC_KEY).then(res => {
+      // console.log(res);
+      resolve(res);
+    });
+  });
+};
+
+let decrypt_TreatmentDetails_UsingFabricKey = data => {
+  return new Promise((resolve, reject) => {
+    decrypt_patientData(data, FABRIC_KEY).then(res => {
+      // console.log(res);
+      resolve(res);
+    });
+  });
+};
 // decryptUsingFABRIC_KEY(data).then((res) => {
 //     console.log(res);
 // })
 
 module.exports = {
-    decryptUsingFABRIC_KEY // it decrypts the data present in the fabric/blockchain with FABRIC_KEY
+  decryptUsingFABRIC_KEY, // it decrypts the data present in the fabric/blockchain with FABRIC_KEY
+  decrypt_TreatmentDetails_UsingFabricKey
 };

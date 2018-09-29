@@ -1,12 +1,8 @@
 require("dotenv").config();
-const {
-    decryptObject
-} = require("./decryption-promise");
-const {
-    getKey
-} = require("../MongoDB/GetKeys");
+const { decryptObject } = require("./decryption-promise");
+const { getKey } = require("../MongoDB/GetKeys");
 
-
+const { decrypt_patientData } = require("./patientData-decrypt");
 
 // let data = {
 //     '$class': 'org.example.basic.Patient',
@@ -19,15 +15,39 @@ const {
 //     address: 'U2FsdGVkX1/H4Cy/zrDSKwD79czOJmlt+ACD8m1FQ14=',
 //     pincode: 'U2FsdGVkX19nFiSgLlqmcvabWQ2dxJiYMjL872JJX0I='
 // };
-let decryptUsingPrivateKey = (data) => {
-    return new Promise((resolve, reject) => {
-        getKey(data.AdharNo).then((res) => {
-            decryptObject(data, res).then((result) => {
-                // console.log(result);
-                resolve(result);
-            });
-        })
-    })
+let decryptUsingPrivateKey = data => {
+  return new Promise((resolve, reject) => {
+    getKey(data.AdharNo)
+      .then(res => {
+        decryptObject(data, res).then(result => {
+          // console.log(result);
+          resolve(result);
+        });
+      })
+      .catch(errorMessage => {
+        console.log(
+          "error while getting private key of that user (EHR-decrypt.js)"
+        );
+      });
+  });
+};
+
+let decrypt_TreatmentDetails_UsingPrivateKey = data => {
+  return new Promise((resolve, reject) => {
+    let AadharNo = data.EHR_ID;
+    getKey(AadharNo)
+      .then(res => {
+        decrypt_patientData(data, res).then(obj => {
+          // console.log(obj);
+          resolve(obj);
+        });
+      })
+      .catch(err => {
+        console.log(
+          "error while getting private key of that user (EHR-decrypt.js)"
+        );
+      });
+  });
 };
 
 // decryptUsingPrivateKey(data).then((res) => {
@@ -35,5 +55,6 @@ let decryptUsingPrivateKey = (data) => {
 // })
 
 module.exports = {
-    decryptUsingPrivateKey // It decrypts Data using users private key stored in MongoDB
+  decryptUsingPrivateKey, // It decrypts Data using users private key stored in MongoDB
+  decrypt_TreatmentDetails_UsingPrivateKey
 };

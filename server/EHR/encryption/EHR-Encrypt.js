@@ -35,12 +35,27 @@ let encryptUsingPrivateKey = (data) => {
         })
     });
 }
+
+let encrypt_TreatmentDetails_UsingPrivateKey = (data) => {
+    return new Promise((resolve, reject) => {
+        let AadharNo = data.patientData.substr(39);
+        getKey(AadharNo).then((res) => {
+            encryptObject(data, res).then((obj) => {
+                // console.log(obj);
+                resolve(obj);
+            })
+        }).catch((err) => {
+            console.log('error while getting private key of that user (EHR-Encrypt.js)');
+        })
+    });
+}
 // encryptUsingPrivateKey(data).then((res) => {
 //     console.log(res);
 // }, (err) => {
-//     console.log('Error occured while encrypring with Private key in Promise "encryptUsingPrivateKey" ');
+//     console.log('Error occurred while encrypting with Private key in Promise "encryptUsingPrivateKey" ');
 // });
 
 module.exports = {
-    encryptUsingPrivateKey
+    encryptUsingPrivateKey,
+    encrypt_TreatmentDetails_UsingPrivateKey //This module is specifically designed for the Treatment details transaction because it doesn't have aadhar no field
 }

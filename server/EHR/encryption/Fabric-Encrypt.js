@@ -27,10 +27,21 @@ let encryptUsingFABRIC_KEY = (data) => {
         })
     })
 };
+
+let encrypt_TreatmentDetails_UsingFABRIC_KEY = (data) => {
+    return new Promise((resolve, reject) => {
+        encryptObject(data, FABRIC_KEY).then((res) => {
+            // console.log(res);
+            resolve(res);
+        })
+    })
+};
+
 // encryptUsingFABRIC_KEY(data, FABRIC_KEY).then((res) => {
 //     console.log(res);
 // })
 
 module.exports = {
-    encryptUsingFABRIC_KEY // It encrypts (By Fabric Key) already encrypted (By User's Private key) data 
+    encryptUsingFABRIC_KEY, // It encrypts (By Fabric Key) already encrypted (By User's Private key) data 
+    encrypt_TreatmentDetails_UsingFABRIC_KEY
 }
