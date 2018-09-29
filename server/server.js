@@ -30,11 +30,12 @@ const {
 } = require("./routes/postPatient");
 //importing module to fetch  patient record and treatment details from blockchain
 const { getPatient, getPatientData } = require("./routes/getPatient");
-
+//This module creates a new patient's private key entry in the MongoDB
 const { createPatientEntry } = require("./EHR/MongoDB/storeKey");
+const { saveTreatment, mongoEncrypt } = require("./EHR/MongoDB/Analytics");
 const {
   createPatientData, // it creates new Asset of PatientData (Patient's Treatment's history)
-  createAccessRecord
+  createAccessRecord //// it creates new Asset of Record (Patient's EHR Access Record)
 } = require("./routes/createAssets");
 
 var app = express();
@@ -133,6 +134,21 @@ app.post("/newpatient", (req, res) => {
 });
 
 app.post("/treatment", (req, res) => {
+  mongoEncrypt(req.body)
+    .then(
+      res => {
+        console.log("Treatment saved in the MongoDB");
+      },
+      errorMessage => {
+        console.log(
+          "error while saving Treatment Details to MongoDB\n",
+          errorMessage
+        );
+      }
+    )
+    .catch(err => {
+      console.log(err);
+    });
   console.log("entering treatment details");
   console.log(req.body);
   encrypt_TreatmentDetails_UsingPrivateKey(req.body).then(result1 => {
@@ -182,6 +198,8 @@ app.get("/treatment/:id", (req, res) => {
       res.sendStatus(404);
     });
 });
+
+app.post("/analytics/:domain/:id", (req, res) => {});
 
 app.listen(4000, () => {
   console.log("Started on port 4000");
