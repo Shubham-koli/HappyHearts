@@ -1,11 +1,8 @@
 require("dotenv").config();
 
-const {
-    encryptObject
-} = require("./encryption-promise");
+const { encryptObject } = require("./encryption-promise");
 
 const FABRIC_KEY = process.env.FABRIC_KEY;
-
 
 // let data = {
 //     "$class": "org.example.basic.Patient",
@@ -19,22 +16,23 @@ const FABRIC_KEY = process.env.FABRIC_KEY;
 //     "pincode": ""
 // };
 
-let encryptUsingFABRIC_KEY = (data) => {
-    return new Promise((resolve, reject) => {
-        encryptObject(data, FABRIC_KEY).then((res) => {
-            // console.log(res);
-            resolve(res);
-        })
-    })
+let encryptUsingFABRIC_KEY = data => {
+  return new Promise((resolve, reject) => {
+    encryptObject(data, FABRIC_KEY).then(res => {
+      // console.log(res);
+      resolve(res);
+    });
+  });
 };
 
-let encrypt_TreatmentDetails_UsingFABRIC_KEY = (data) => {
-    return new Promise((resolve, reject) => {
-        encryptObject(data, FABRIC_KEY).then((res) => {
-            // console.log(res);
-            resolve(res);
-        })
-    })
+// added promise to encrypt the treatment details using Fabric key
+let encrypt_TreatmentDetails_UsingFABRIC_KEY = data => {
+  return new Promise((resolve, reject) => {
+    encryptObject(data, FABRIC_KEY).then(res => {
+      // console.log(res);
+      resolve(res);
+    });
+  });
 };
 
 // encryptUsingFABRIC_KEY(data, FABRIC_KEY).then((res) => {
@@ -42,6 +40,6 @@ let encrypt_TreatmentDetails_UsingFABRIC_KEY = (data) => {
 // })
 
 module.exports = {
-    encryptUsingFABRIC_KEY, // It encrypts (By Fabric Key) already encrypted (By User's Private key) data 
-    encrypt_TreatmentDetails_UsingFABRIC_KEY
-}
+  encryptUsingFABRIC_KEY, // It encrypts (By Fabric Key) already encrypted (By User's Private key) data
+  encrypt_TreatmentDetails_UsingFABRIC_KEY
+};
