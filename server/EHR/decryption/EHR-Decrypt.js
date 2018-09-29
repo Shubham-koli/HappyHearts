@@ -31,7 +31,7 @@ let decryptUsingPrivateKey = data => {
       });
   });
 };
-
+//Promise to  decrypt the treatment details using private key
 let decrypt_TreatmentDetails_UsingPrivateKey = data => {
   return new Promise((resolve, reject) => {
     let AadharNo = data.EHR_ID;
@@ -56,5 +56,5 @@ let decrypt_TreatmentDetails_UsingPrivateKey = data => {
 
 module.exports = {
   decryptUsingPrivateKey, // It decrypts Data using users private key stored in MongoDB
-  decrypt_TreatmentDetails_UsingPrivateKey
+  decrypt_TreatmentDetails_UsingPrivateKey ////decryption of treatment details using Fabric Key, I reconstructed it because of different jSON Format.
 };
