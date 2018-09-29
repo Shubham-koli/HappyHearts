@@ -40,5 +40,5 @@ let decrypt_TreatmentDetails_UsingFabricKey = data => {
 
 module.exports = {
   decryptUsingFABRIC_KEY, // it decrypts the data present in the fabric/blockchain with FABRIC_KEY
-  decrypt_TreatmentDetails_UsingFabricKey
+  decrypt_TreatmentDetails_UsingFabricKey //decryption of treatment details using Fabric Key, I reconstructed it because of different jSON Format.
 };
