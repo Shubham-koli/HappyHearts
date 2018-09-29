@@ -82,5 +82,5 @@ let decrypt_patientData = (data, CIPHER_KEY) => {
 };
 
 module.exports = {
-  decrypt_patientData
+  decrypt_patientData //it works
 };
