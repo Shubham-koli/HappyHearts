@@ -38,12 +38,16 @@ const {
   createAccessRecord //// it creates new Asset of Record (Patient's EHR Access Record)
 } = require("./routes/createAssets");
 
+// Modules needed for consent mechanism. they store data into MongoDB
 const {
   accessGRANT,
   accessReq,
   accessDENY,
   checkAccess
 } = require("./EHR/MongoDB/Consent");
+
+// Modules to store Access log into blockchain
+const { grantRecord, denyRecord } = require("./routes/storeRecord");
 var app = express();
 app.use(bodyParser.json());
 
@@ -248,6 +252,19 @@ app.post("/treatment", (req, response) => {
 
 app.post("/grant/", (req, response) => {
   console.log(req.body.AdharNo);
+  //console.log(req.body);
+  grantRecord(req.body)
+    .then(
+      res => {
+        console.log("Access GRANT Logged");
+      },
+      err => {
+        console.log("error while Logging access details into blockchain");
+      }
+    )
+    .catch(err => {
+      console.log("Fatal error in the Access logging into blockchain");
+    });
   accessGRANT(req.body)
     .then(
       res => {
@@ -297,6 +314,18 @@ app.post("/request", (req, res) => {
 });
 
 app.post("/deny", (req, response, next) => {
+  denyRecord(req.body)
+    .then(
+      res => {
+        console.log("Access DENY Logged");
+      },
+      err => {
+        console.log("error while Logging access details into blockchain");
+      }
+    )
+    .catch(err => {
+      console.log("Fatal error in the Access logging into blockchain");
+    });
   accessDENY(req.body)
     .then(
       res => {
