@@ -46,6 +46,9 @@ const {
   checkAccess
 } = require("./EHR/MongoDB/Consent");
 
+const { getGrantPatients } = require("./EHR/MongoDB/getPatient");
+const { getName } = require("./EHR/MongoDB/patientName");
+
 // Modules to store Access log into blockchain
 const { grantRecord, denyRecord } = require("./routes/storeRecord");
 var app = express();
@@ -296,20 +299,27 @@ app.post("/grant/", (req, response) => {
 });
 
 app.post("/request", (req, res) => {
+  console.log(req.body);
   accessReq(req.body)
     .then(
-      res => {
+      res1 => {
         console.log("Access Request Created");
-        res.sendStatus(200);
+        res.send({
+          CODE: "200"
+        });
       },
       errorMessage => {
         console.log(errorMessage);
-        res.sendStatus(409);
+        res.send({
+          CODE: "400"
+        });
       }
     )
     .catch(errorMessage => {
       console.log(errorMessage);
-      res.sendStatus(409);
+      res.send({
+        CODE: `${errorMessage}`
+      });
     });
 });
 
@@ -341,6 +351,28 @@ app.post("/deny", (req, response, next) => {
       console.log(errorMessage);
       response.sendStatus(404);
     });
+});
+
+app.post("/patientlist", (req, response) => {
+  console.log(`Getting Patient's List for Hospital ${req.body[0].Hospital_ID}`);
+  console.log(req.body);
+  async function getPatientDetails(data, response) {
+    let patientDetails = [];
+    let aadharID = await getGrantPatients(data);
+    aadharID.forEach(id => {
+      getName(id.uid).then(name => {
+        let person = {};
+        person.uid = id.uid;
+        person.pname = name;
+        patientDetails.push(person);
+        // console.log(patientDetails);
+        if (patientDetails.length === aadharID.length) {
+          response.send(patientDetails);
+        }
+      });
+    });
+  }
+  getPatientDetails(req.body[0], response);
 });
 
 app.listen(4000, () => {
