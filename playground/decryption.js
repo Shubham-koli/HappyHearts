@@ -11,26 +11,49 @@ let data = {
   TreatmentDetails: [
     {
       $class: "org.example.basic.TreatmentDetails",
-      HospitalName: "U2FsdGVkX19KMTgoMKaRGXY/mHjnbKYILBhANq93rNo=",
-      StaffId: "U2FsdGVkX1+S6AEgsgKuMJdvy6jhiSQ2LhMQpJnmIhc=",
-      PinCode: "U2FsdGVkX1+rpgx0VDzqhBjX/UpLNl86i/rLAKlZBmY=",
+      HospitalName: "U2FsdGVkX1+lDnAKonFN14r64OGyBSGxx1NEot8aqr0=",
+      StaffId: "U2FsdGVkX1+1xBV3RQAQkat4LGu7AwJ2UdsNvl96B1g=",
+      PinCode: "U2FsdGVkX1+YGGvSSi59/xqcep0nIEraiXS6kG02HgY=",
+      ChronicDisease: "U2FsdGVkX180WqCkPKEATZesgmtbHZU2dzBZcWAN20k=",
+      Disease: "U2FsdGVkX1+7cKu9vR8AAKbQRM9kLxs4UOUuYa/Jj2Q=",
+      DiseaseType:
+        "U2FsdGVkX1+dXvn7o+jDlC4iDnCJ+YKcnYdOI54XvSbslH2u4ib8xZg7TEIDooUy",
+      DiseaseCategory: "U2FsdGVkX1+1z5eDyPRpBVtRz5tKBerQVT2MOlcJPCc=",
+      DiseaseSubCategory: "U2FsdGVkX19McPcOL3RHIF8FpNEMHVdDOgVNwjGytVY=",
+      symptom:
+        "U2FsdGVkX19hTmmQRaq7ryg/AoKdbJztMrEXVAJ+yOhoUuT/X5sAO8v2UMyfyRF7",
+      allergies: "U2FsdGVkX1+zUb+eVFQejZNddfn91AtnbkR00ofNM9s=",
+      AlcoholConsumption: "U2FsdGVkX1/GkOXSMd2fGqSuEgQJ7ANsH4Y4FjaLYVY=",
+      SmokingHabits: "U2FsdGVkX1+p5EQQRGI74EDs6KvIAedROPyE1NNd4XA=",
+      medicines: "U2FsdGVkX19DA+vHKyrjdGyF1HYOfHcYgfBZgaQOrHo=",
+      tests: "U2FsdGVkX187sXxnaE9Jy2x94Rw5T48lLKpSLig4lnI=",
       patientData: "resource:org.example.basic.PatientData#1337",
       transactionId:
-        "0a11745340c1d177778dca57d9c47f36a8bf72e99a19ddb02f738b3787b69a92",
-      timestamp: "2018-09-29T00:14:03.283Z"
+        "8bae36a0f185904aaf894922360672698e20b6523ad9b8a51aa3eb5f77e7966d",
+      timestamp: "2018-10-01T16:59:30.765Z"
     },
     {
       $class: "org.example.basic.TreatmentDetails",
-      HospitalName:
-        "U2FsdGVkX19ZVqlsLm0d3XzYejZB1YQk/1hpUZRgGNmRgXiW2aoS1LqxlzADWobKmuZIma3DKE41WMaMZTT0/Q==",
-      StaffId:
-        "U2FsdGVkX1/GwgPhqphDIl1UJD3s/j2ALTAJxG7WBarJcI0Pu8nzx21VejyMYnEy+Fthk3rY48CkQXPRNfPWYQ==",
-      PinCode:
-        "U2FsdGVkX1+Pn9Cny/vvyJpgXF6lN9pNdXYCEZJYVKlHAoDT618s7RI8GvxTEfCmICrvf3SvKKzdogogY8tS5A==",
-      patientData: "resource:org.example.basic.PatientData#3893",
+      HospitalName: "U2FsdGVkX1+lDnAKonFN14r64OGyBSGxx1NEot8aqr0=",
+      StaffId: "U2FsdGVkX1+1xBV3RQAQkat4LGu7AwJ2UdsNvl96B1g=",
+      PinCode: "U2FsdGVkX1+YGGvSSi59/xqcep0nIEraiXS6kG02HgY=",
+      ChronicDisease: "U2FsdGVkX180WqCkPKEATZesgmtbHZU2dzBZcWAN20k=",
+      Disease: "U2FsdGVkX1+7cKu9vR8AAKbQRM9kLxs4UOUuYa/Jj2Q=",
+      DiseaseType:
+        "U2FsdGVkX1+dXvn7o+jDlC4iDnCJ+YKcnYdOI54XvSbslH2u4ib8xZg7TEIDooUy",
+      DiseaseCategory: "U2FsdGVkX1+1z5eDyPRpBVtRz5tKBerQVT2MOlcJPCc=",
+      DiseaseSubCategory: "U2FsdGVkX19McPcOL3RHIF8FpNEMHVdDOgVNwjGytVY=",
+      symptom:
+        "U2FsdGVkX19hTmmQRaq7ryg/AoKdbJztMrEXVAJ+yOhoUuT/X5sAO8v2UMyfyRF7",
+      allergies: "U2FsdGVkX1+zUb+eVFQejZNddfn91AtnbkR00ofNM9s=",
+      AlcoholConsumption: "U2FsdGVkX1/GkOXSMd2fGqSuEgQJ7ANsH4Y4FjaLYVY=",
+      SmokingHabits: "U2FsdGVkX1+p5EQQRGI74EDs6KvIAedROPyE1NNd4XA=",
+      medicines: "U2FsdGVkX19DA+vHKyrjdGyF1HYOfHcYgfBZgaQOrHo=",
+      tests: "U2FsdGVkX187sXxnaE9Jy2x94Rw5T48lLKpSLig4lnI=",
+      patientData: "resource:org.example.basic.PatientData#1337",
       transactionId:
-        "9b5d3d50f88a9f3ba535adb733068b44eb7168b2b290a904b00710983c20db71",
-      timestamp: "2018-09-28T13:39:30.758Z"
+        "8bae36a0f185904aaf894922360672698e20b6523ad9b8a51aa3eb5f77e7966d",
+      timestamp: "2018-10-01T16:59:30.765Z"
     }
   ]
 };
