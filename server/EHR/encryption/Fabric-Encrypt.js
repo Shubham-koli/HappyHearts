@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const { encryptObject } = require("./encryption-promise");
 
-const FABRIC_KEY = process.env.FABRIC_KEY;
+const FABRIC_KEY = "12345";
 
 // let data = {
 //     "$class": "org.example.basic.Patient",

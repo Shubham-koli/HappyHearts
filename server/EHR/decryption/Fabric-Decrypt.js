@@ -3,7 +3,7 @@ const { decryptObject } = require("./decryption-promise");
 
 const { decrypt_patientData } = require("./patientData-decrypt");
 
-const FABRIC_KEY = process.env.FABRIC_KEY;
+const FABRIC_KEY = "12345";
 
 // let data = {
 //     '$class': 'org.example.basic.Patient',
@@ -42,3 +42,7 @@ module.exports = {
   decryptUsingFABRIC_KEY, // it decrypts the data present in the fabric/blockchain with FABRIC_KEY
   decrypt_TreatmentDetails_UsingFabricKey //decryption of treatment details using Fabric Key, I reconstructed it because of different jSON Format.
 };
+
+// decrypt_TreatmentDetails_UsingFabricKey(data).then(doc => {
+//   console.log(doc);
+// });

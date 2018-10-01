@@ -34,9 +34,11 @@ let decryptUsingPrivateKey = data => {
 //Promise to  decrypt the treatment details using private key
 let decrypt_TreatmentDetails_UsingPrivateKey = data => {
   return new Promise((resolve, reject) => {
+    console.log(data);
     let AadharNo = data.EHR_ID;
     getKey(AadharNo)
       .then(res => {
+        console.log(res);
         decrypt_patientData(data, res).then(obj => {
           // console.log(obj);
           resolve(obj);
