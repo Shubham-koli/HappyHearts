@@ -2,7 +2,14 @@ const { Treatment } = require("../server/EHR/models/AnalyticalData");
 const { mongoose } = require("../server/EHR/MongoDB/mongoose");
 console.log("test");
 Treatment.find().then(data => {
-  console.log(data.length);
+  // console.log(data.length);
+  data.forEach(function(obj) {
+    for (let record in obj) {
+      if (obj.hasOwnProperty(record)) {
+        console.log({ record });
+      }
+    }
+  });
 }),
   errorMessage => {
     console.log(errorMessage);
