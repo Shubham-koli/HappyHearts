@@ -29,7 +29,11 @@ const {
   addTreatmentDetails
 } = require("./routes/postPatient");
 //importing module to fetch  patient record and treatment details from blockchain
-const { getPatient, getPatientData } = require("./routes/getPatient");
+const {
+  processData,
+  getPatient,
+  getPatientData
+} = require("./routes/getPatient");
 //This module creates a new patient's private key entry in the MongoDB
 const { createPatientEntry } = require("./EHR/MongoDB/storeKey");
 const { saveTreatment, mongoEncrypt } = require("./EHR/MongoDB/Analytics");
@@ -121,7 +125,7 @@ app.post("/getpatient", (req, res) => {
 
 app.post("/newpatient", (req, res) => {
   console.log(req.body.AdharNo);
-  addNewPatient(req.body.AdharNo, req.body.firstName)
+  addNewPatient(req.body.AdharNo, req.body.firstName, req.body.firstName)
     .then(doc => {
       console.log("User Added to MongoDB");
     })
@@ -174,11 +178,22 @@ app.post("/newpatient", (req, res) => {
     });
 });
 
+app.post("/analytics", (req, res) => {
+  if (req.body != null) {
+    res.send({
+      malaria: 64,
+      Dengue: 24,
+      ZikaVirus: 12
+    });
+  }
+});
+
 app.post("/newtreatment", (req, response) => {
   let AadharNo = req.body.patientData.substr(39);
   let Hospital_ID = req.body.HospitalName;
   checkAccess(AadharNo, Hospital_ID)
     .then(code => {
+      console.log(code);
       if (code == "200") {
         mongoEncrypt(req.body)
           .then(
@@ -197,25 +212,22 @@ app.post("/newtreatment", (req, response) => {
           });
         console.log("entering treatment details");
         console.log(req.body);
-        encrypt_TreatmentDetails_UsingPrivateKey(req.body).then(result1 => {
-          console.log("encrypting using Private key");
-          encrypt_TreatmentDetails_UsingFABRIC_KEY(result1).then(result => {
-            console.log("encrypting using Fabric key");
-            addTreatmentDetails(result)
-              .then(
-                res => {
-                  console.log(res);
-                  response.sendStatus(200);
-                },
-                errorMessage => {
-                  console.log(errorMessage);
-                  response.sendStatus(500);
-                }
-              )
-              .catch(errorMessage => {
+        encrypt_TreatmentDetails_UsingFABRIC_KEY(req.body).then(result => {
+          console.log("encrypting using Fabric key");
+          addTreatmentDetails(result)
+            .then(
+              res => {
+                console.log(res);
+                response.sendStatus(200);
+              },
+              errorMessage => {
                 console.log(errorMessage);
-              });
-          });
+                response.sendStatus(500);
+              }
+            )
+            .catch(errorMessage => {
+              console.log(errorMessage);
+            });
         });
       } else {
         response.sendStatus(401);
@@ -238,12 +250,22 @@ app.post("/treatment", (req, response) => {
               console.log("Fetching Data from Blockchain");
               decrypt_TreatmentDetails_UsingFabricKey(result).then(result1 => {
                 console.log("decrypted using Fabric Key");
-                decrypt_TreatmentDetails_UsingPrivateKey(result1).then(
-                  decryptedObj => {
-                    console.log("decrypt using Private Key");
-                    response.send(decryptedObj);
-                  }
-                );
+                async function getData(result1) {
+                  let data = [];
+                  result1.TreatmentDetails.forEach(record => {
+                    processData(record)
+                      .then(details => {
+                        data.push(details);
+                        if (result1.TreatmentDetails.length == data.length) {
+                          response.send(data);
+                        }
+                      })
+                      .catch(err => {
+                        console.log(err);
+                      });
+                  });
+                }
+                getData(result1);
               });
             },
             errorMessage => {
@@ -439,17 +461,11 @@ app.post("/lastrecord", (req, response) => {
               console.log("Fetching Data from Blockchain");
               decrypt_TreatmentDetails_UsingFabricKey(result).then(result1 => {
                 console.log("decrypted using Fabric Key");
-                decrypt_TreatmentDetails_UsingPrivateKey(result1).then(
-                  decryptedObj => {
-                    console.log("decrypt using Private Key");
-                    console.log(decryptedObj);
-                    lastRecord(decryptedObj).then(doc => {
-                      doc.status = "200";
-                      response.send(doc);
-                      console.log(doc);
-                    });
-                  }
-                );
+                lastRecord(result1).then(doc => {
+                  doc.status = "200";
+                  response.send(doc);
+                  console.log(doc);
+                });
               });
             },
             errorMessage => {
