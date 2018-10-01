@@ -51,6 +51,9 @@ const { getName } = require("./EHR/MongoDB/patientName");
 
 // Modules to store Access log into blockchain
 const { grantRecord, denyRecord } = require("./routes/storeRecord");
+const { lastRecord } = require("../server/routes/getLastRecord");
+
+const { addNewPatient } = require("./EHR/MongoDB/createUser");
 var app = express();
 app.use(bodyParser.json());
 
@@ -95,6 +98,7 @@ app.post("/getpatient", (req, res) => {
                 console.log("decrypt using Private Key");
                 decryptUsingPrivateKey(result1).then(decryptedObj => {
                   console.log("Object Successfully Decrypted");
+                  decryptedObj.status = "200";
                   res.send(decryptedObj);
                 });
               });
@@ -117,6 +121,13 @@ app.post("/getpatient", (req, res) => {
 
 app.post("/newpatient", (req, res) => {
   console.log(req.body.AdharNo);
+  addNewPatient(req.body.AdharNo, req.body.firstName)
+    .then(doc => {
+      console.log("User Added to MongoDB");
+    })
+    .catch(err => {
+      console.log(err);
+    });
   createPatientData(req.body.AdharNo)
     .then(
       res => {
@@ -353,6 +364,47 @@ app.post("/deny", (req, response, next) => {
     });
 });
 
+app.post("/test", (req, res) => {
+  res.send(
+    {
+      HospitalName: "Civil",
+      HospitalId: "id",
+      StaffId: "Deserunt qui.",
+      StaffName: "Dr.Bare",
+      Address: "address",
+      ChronicDisease: "Minim aute esse minim laborum.",
+      Disease: "Nulla duis.",
+      DiseaseType: "Consectetur aute.",
+      DiseaseCategory: "Exercitation sunt.",
+      DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
+      allergies: "Esse commodo.",
+      AlcoholConsumption: "Occaecat nulla.",
+      SmokingHabits: "Elit esse excepteur.",
+      medicines: "Deserunt amet.",
+      tests: "Officia id ex nisi.",
+      Date: "2018-09-28"
+    },
+    {
+      HospitalName: "Civil",
+      HospitalId: "id",
+      StaffId: "Deserunt qui.",
+      StaffName: "Dr.Bare",
+      Address: "address",
+      ChronicDisease: "Minim aute esse minim laborum.",
+      Disease: "Nulla duis.",
+      DiseaseType: "Consectetur aute.",
+      DiseaseCategory: "Exercitation sunt.",
+      DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
+      allergies: "Esse commodo.",
+      AlcoholConsumption: "Occaecat nulla.",
+      SmokingHabits: "Elit esse excepteur.",
+      medicines: "Deserunt amet.",
+      tests: "Officia id ex nisi.",
+      Date: "2018-09-28"
+    }
+  );
+});
+
 app.post("/patientlist", (req, response) => {
   console.log(`Getting Patient's List for Hospital ${req.body[0].Hospital_ID}`);
   console.log(req.body);
@@ -373,6 +425,49 @@ app.post("/patientlist", (req, response) => {
     });
   }
   getPatientDetails(req.body[0], response);
+});
+
+app.post("/lastrecord", (req, response) => {
+  let AadharNo = req.body.AdharNo;
+  let Hospital_ID = req.body.Hospital_ID;
+  checkAccess(AadharNo, Hospital_ID)
+    .then(code => {
+      if (code == "200") {
+        getPatientData(AadharNo)
+          .then(
+            result => {
+              console.log("Fetching Data from Blockchain");
+              decrypt_TreatmentDetails_UsingFabricKey(result).then(result1 => {
+                console.log("decrypted using Fabric Key");
+                decrypt_TreatmentDetails_UsingPrivateKey(result1).then(
+                  decryptedObj => {
+                    console.log("decrypt using Private Key");
+                    console.log(decryptedObj);
+                    lastRecord(decryptedObj).then(doc => {
+                      doc.status = "200";
+                      response.send(doc);
+                      console.log(doc);
+                    });
+                  }
+                );
+              });
+            },
+            errorMessage => {
+              console.log(errorMessage);
+              response.sendStatus(404);
+            }
+          )
+          .catch(errorMessage => {
+            console.log(errorMessage);
+            response.sendStatus(404);
+          });
+      } else {
+        response.sendStatus(401);
+      }
+    })
+    .catch(err => {
+      response.sendStatus(401);
+    });
 });
 
 app.listen(4000, () => {
