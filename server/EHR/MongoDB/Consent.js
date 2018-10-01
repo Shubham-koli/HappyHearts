@@ -15,18 +15,15 @@ let accessReq = data => {
       .save()
       .then(
         doc => {
-          resolve(doc);
+          resolve(200);
         },
         err => {
-          console.log("Error while uploading access request to MongoDB", err);
-          reject(err);
+          console.log("uploading access request to MongoDB", err);
+          reject(204);
         }
       )
       .catch(errorMessage => {
-        console.log(
-          "Error while uploading access request to MongoDB",
-          errorMessage
-        );
+        reject(204);
       });
   });
 };
