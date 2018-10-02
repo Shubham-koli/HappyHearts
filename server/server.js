@@ -190,6 +190,12 @@ app.post("/analytics", (req, res) => {
 });
 
 app.post("/newtreatment", (req, response) => {
+  response.send({
+    status: "200"
+  });
+  req.body.$class = "org.example.basic.TreatmentDetails";
+  console.log(Date.now());
+  console.log(req.body);
   let AadharNo = req.body.patientData.substr(39);
   let Hospital_ID = req.body.HospitalName;
   checkAccess(AadharNo, Hospital_ID)
@@ -218,8 +224,11 @@ app.post("/newtreatment", (req, response) => {
           addTreatmentDetails(result)
             .then(
               res => {
-                console.log(res);
-                response.sendStatus(200);
+                // console.log(res);
+                // console.log(result);
+                // response.send({
+                //   status: "200"
+                // });
               },
               errorMessage => {
                 console.log(errorMessage);
@@ -434,6 +443,7 @@ app.post("/patientlist", (req, response) => {
   // console.log(req.body);
   console.log(`Getting Patient's List for Hospital ${req.body[0].Hospital_ID}`);
   console.log(req.body);
+  -[];
   async function getPatientDetails(data, response) {
     let patientDetails = [];
     let aadharID = await getGrantPatients(data);
@@ -443,7 +453,7 @@ app.post("/patientlist", (req, response) => {
         person.uid = id.uid;
         person.pname = name;
         patientDetails.push(person);
-        // console.log(patientDetails);
+        console.log(patientDetails);
         if (patientDetails.length === aadharID.length) {
           response.send(patientDetails);
         }
@@ -487,6 +497,32 @@ app.post("/lastrecord", (req, response) => {
     })
     .catch(err => {
       response.sendStatus(401);
+    });
+});
+
+app.post("/emergencyportal", (req, res) => {
+  let AadharNo = req.body.AdharNo;
+  let guardian = req.body.guardians;
+  console.log(AadharNo);
+
+  getPatient(AadharNo, guardian)
+    .then(result => {
+      console.log("decrypt using Fabric Key");
+      decryptUsingFABRIC_KEY(result).then(result1 => {
+        console.log("decrypt using Private Key");
+        decryptUsingPrivateKey(result1).then(decryptedObj => {
+          console.log("Object Successfully Decrypted");
+          decryptedObj.status = "200";
+          if (decryptedObj.guardians == guardian) {
+            res.send(decryptedObj);
+          } else {
+            res.sendStatus(401);
+          }
+        });
+      });
+    })
+    .catch(err => {
+      console.log(err);
     });
 });
 
