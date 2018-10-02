@@ -6,9 +6,14 @@ let Treatment = mongoose.model("Analytics", {
     required: true,
     trim: 1
   },
-  StaffId: {
+  Staff_ID: {
     type: String,
-    required: true,
+    required: false,
+    trim: 1
+  },
+  flag: {
+    type: String,
+    required: false,
     trim: 1
   },
   PinCode: {
