@@ -179,6 +179,7 @@ app.post("/newpatient", (req, res) => {
 });
 
 app.post("/analytics", (req, res) => {
+  console.log("analytics request received");
   if (req.body != null) {
     res.send({
       malaria: 64,
@@ -239,8 +240,9 @@ app.post("/newtreatment", (req, response) => {
 });
 
 app.post("/treatment", (req, response) => {
-  let AadharNo = req.body.AdharNo;
-  let Hospital_ID = req.body.Hospital_ID;
+  console.log(req.body);
+  let AadharNo = req.body[0].AdharNo;
+  let Hospital_ID = req.body[0].Hospital_ID;
   checkAccess(AadharNo, Hospital_ID)
     .then(code => {
       if (code == "200") {
@@ -253,7 +255,7 @@ app.post("/treatment", (req, response) => {
                 async function getData(result1) {
                   let data = [];
                   result1.TreatmentDetails.forEach(record => {
-                    processData(record)
+                    processData(record, req.body[0].Hospital_ID)
                       .then(details => {
                         data.push(details);
                         if (result1.TreatmentDetails.length == data.length) {
@@ -262,6 +264,7 @@ app.post("/treatment", (req, response) => {
                       })
                       .catch(err => {
                         console.log(err);
+                        response.send(err);
                       });
                   });
                 }
@@ -428,6 +431,7 @@ app.post("/test", (req, res) => {
 });
 
 app.post("/patientlist", (req, response) => {
+  // console.log(req.body);
   console.log(`Getting Patient's List for Hospital ${req.body[0].Hospital_ID}`);
   console.log(req.body);
   async function getPatientDetails(data, response) {
