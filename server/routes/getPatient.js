@@ -68,7 +68,6 @@ let processData = (data, Hospital_ID) => {
       delete data.PinCode;
       delete data.$class;
       delete data.timestamp;
-      delete data.transactionId;
       data.Address = address;
       data.HospitalName = HospitalName;
       data.HospitalId = HospitalId;
