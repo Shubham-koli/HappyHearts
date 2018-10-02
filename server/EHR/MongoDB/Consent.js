@@ -99,9 +99,37 @@ let checkAccess = (AdharNo, Hospital_ID) => {
   });
 };
 
+let emergencyAccessGRANT = data => {
+  return new Promise((resolve, reject) => {
+    let AdharNo = data.AdharNo;
+    Access.findOneAndUpdate(
+      { _id: AdharNo },
+      { $set: { Status: "GRANT" } },
+      { new: true }
+    )
+      .then(
+        doc => {
+          resolve(doc);
+        },
+        err => {
+          console.log("Error while updating access request to MongoDB", err);
+          if (err.code == 11000) {
+            reject(409);
+          } else {
+            reject(err);
+          }
+        }
+      )
+      .catch(errorMessage => {
+        reject(404);
+      });
+  });
+};
+
 module.exports = {
   checkAccess,
   accessReq,
   accessGRANT,
-  accessDENY
+  accessDENY,
+  emergencyAccessGRANT
 };

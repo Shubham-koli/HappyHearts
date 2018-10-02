@@ -56,7 +56,32 @@ let grantRecord = data => {
   });
 };
 
+let emergency_access = data => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${REST_URL}/org.example.basic.Record`, {
+        $class: "org.example.basic.Record",
+        HospitalName: data.Hospital_ID,
+        StaffId: data.Staff_ID,
+        AccessType: `EMERGENCY GRANT BY GUARDIAN ${data.guardians}`,
+        accessRecord: "resource:org.example.basic.AccessRecord#" + data.AdharNo
+      })
+      .then(
+        function(response) {
+          resolve(200);
+        },
+        error => {
+          reject(404);
+        }
+      )
+      .catch(function(error) {
+        reject(500);
+      });
+  });
+};
+
 module.exports = {
   grantRecord,
-  denyRecord
+  denyRecord,
+  emergency_access
 };
