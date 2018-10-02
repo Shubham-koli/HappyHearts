@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
-let Treatment = mongoose.model("Analytics", {
+let Hospital = mongoose.model("Hospital", {
+  _id: {
+    type: String,
+    required: true,
+    trim: 1
+  },
   HospitalName: {
     type: String,
     required: true,
@@ -10,5 +15,14 @@ let Treatment = mongoose.model("Analytics", {
     type: String,
     required: true,
     trim: 1
+  },
+  StaffName: {
+    type: String,
+    required: true,
+    trim: 1
   }
 });
+
+module.exports = {
+  Hospital
+};
