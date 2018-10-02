@@ -59,14 +59,35 @@ let saveTreatment = data => {
 //   patientData: "resource:org.example.basic.PatientData#8373"
 // };
 
+// let mongoEncrypt = data => {
+//   return new Promise((resolve, reject) => {
+//     encryptObject(data, CIPHER_KEY)
+//       .then(
+//         res => {
+//           saveTreatment(data).then(doc => {
+//             console.log(doc);
+//             resolve(doc);
+//           });
+//         },
+//         errorMessage => {
+//           console.log("ERROR WHILE ENCRYPTING DATA WHILE STORING IN MONGODB");
+//           reject(errorMessage);
+//         }
+//       )
+//       .catch(err => {
+//         console.log("ERROR WHILE ENCRYPTING DATA WHILE STORING IN MONGODB");
+//         reject(err);
+//       });
+//   });
+// };
+
 let mongoEncrypt = data => {
   return new Promise((resolve, reject) => {
-    encryptObject(data, CIPHER_KEY)
+    saveTreatment(data)
       .then(
-        res => {
-          saveTreatment(res).then(doc => {
-            resolve(doc);
-          });
+        doc => {
+          console.log(doc);
+          resolve(doc);
         },
         errorMessage => {
           console.log("ERROR WHILE ENCRYPTING DATA WHILE STORING IN MONGODB");
