@@ -47,14 +47,19 @@ const {
   accessGRANT,
   accessReq,
   accessDENY,
-  checkAccess
+  checkAccess,
+  emergencyAccessGRANT
 } = require("./EHR/MongoDB/Consent");
 
 const { getGrantPatients } = require("./EHR/MongoDB/getPatient");
 const { getName } = require("./EHR/MongoDB/patientName");
 
 // Modules to store Access log into blockchain
-const { grantRecord, denyRecord } = require("./routes/storeRecord");
+const {
+  grantRecord,
+  denyRecord,
+  emergency_access
+} = require("./routes/storeRecord");
 const { lastRecord } = require("../server/routes/getLastRecord");
 
 const { addNewPatient } = require("./EHR/MongoDB/createUser");
@@ -504,6 +509,35 @@ app.post("/emergencyportal", (req, res) => {
   let AadharNo = req.body.AdharNo;
   let guardian = req.body.guardians;
   console.log(AadharNo);
+  emergency_access(req.body)
+    .then(
+      result => {
+        console.log("Emergency Access Recorded into Blockchain");
+      },
+      err => {
+        console.log("error while logging emergency access to the blockchain");
+        res.sendStatus(402);
+      }
+    )
+    .catch(err => {
+      console.log("error while connecting blockchain");
+    });
+  emergencyAccessGRANT(req.body)
+    .then(
+      doc => {
+        console.log("Emergency Access Grant record Created in MongoDB");
+      },
+      err => {
+        console.log(
+          "FAILED TO CREATE Emergency Access Grant record in MongoDB"
+        );
+        res.sendStatus(402);
+      }
+    )
+    .catch(doc => {
+      console.log("FAILED TO CREATE Emergency Access Grant record in MongoDB");
+      res.sendStatus(500);
+    });
 
   getPatient(AadharNo, guardian)
     .then(result => {
