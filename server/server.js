@@ -130,7 +130,7 @@ app.post("/getpatient", (req, res) => {
 
 app.post("/newpatient", (req, res) => {
   console.log(req.body.AdharNo);
-  addNewPatient(req.body.AdharNo, req.body.firstName, req.body.firstName)
+  addNewPatient(req.body.AdharNo, req.body.firstName, req.body.lastName)
     .then(doc => {
       console.log("User Added to MongoDB");
     })
