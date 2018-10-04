@@ -2,6 +2,8 @@ const { mongoose } = require("./mongoose");
 
 const { Access } = require("../models/Access");
 
+const { getHospitalName } = require("../MongoDB/getHospital");
+
 let accessReq = data => {
   return new Promise((resolve, reject) => {
     let AdharNo = data.AdharNo;
@@ -126,8 +128,48 @@ let emergencyAccessGRANT = data => {
   });
 };
 
+let accessOPEN = data => {
+  return new Promise((resolve, reject) => {
+    let AdharNo = data.AdharNo;
+    Access.findOne({ _id: AdharNo })
+      .then(
+        doc => {
+          // resolve(doc);
+          console.log(doc);
+          let data = {};
+          getHospitalName(doc.Hospital_ID).then(result => {
+            data.StaffName = result.StaffName;
+            data.HospitalName = result.name;
+            data.Staff_ID = "DOC12345";
+            data.Hospital_ID = "HS12345";
+            resolve(data);
+          });
+        },
+        err => {
+          console.log("Error while updating access request to MongoDB", err);
+          if (err.code == 11000) {
+            reject(409);
+          } else {
+            reject(err);
+          }
+        }
+      )
+      .catch(errorMessage => {
+        reject(404);
+      });
+  });
+};
+let data = {
+  AdharNo: "8421999884"
+};
+
+// accessOPEN(data).then(doc => {
+//   console.log(doc);
+// });
+
 module.exports = {
   checkAccess,
+  accessOPEN,
   accessReq,
   accessGRANT,
   accessDENY,

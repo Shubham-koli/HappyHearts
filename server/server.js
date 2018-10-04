@@ -48,6 +48,7 @@ const {
   accessReq,
   accessDENY,
   checkAccess,
+  accessOPEN,
   emergencyAccessGRANT
 } = require("./EHR/MongoDB/Consent");
 
@@ -61,6 +62,7 @@ const {
   emergency_access
 } = require("./routes/storeRecord");
 const { lastRecord } = require("../server/routes/getLastRecord");
+const { getHospitalName } = require("./EHR/MongoDB/getHospital");
 
 const { addNewPatient } = require("./EHR/MongoDB/createUser");
 var app = express();
@@ -321,20 +323,9 @@ app.post("/grant/", (req, response) => {
   accessGRANT(req.body)
     .then(
       res => {
-        getPatient(req.body.AdharNo)
-          .then(result => {
-            console.log("decrypt using Fabric Key");
-            decryptUsingFABRIC_KEY(result).then(result1 => {
-              console.log("decrypt using Private Key");
-              decryptUsingPrivateKey(result1).then(decryptedObj => {
-                console.log("Object Successfully Decrypted");
-                response.send(decryptedObj);
-              });
-            });
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        response.send({
+          response: "200"
+        });
       },
       errorMessage => {
         console.log(
@@ -390,7 +381,9 @@ app.post("/deny", (req, response, next) => {
     .then(
       res => {
         console.log("Access Request DENIED");
-        response.sendStatus(200);
+        response.send({
+          response: "200"
+        });
       },
       errorMessage => {
         console.log(errorMessage);
@@ -557,6 +550,23 @@ app.post("/emergencyportal", (req, res) => {
     })
     .catch(err => {
       console.log(err);
+    });
+});
+
+app.post("/openaccess", (req, res) => {
+  accessOPEN(req.body[0])
+    .then(
+      doc => {
+        let data = [];
+        data.push(doc);
+        res.send(data);
+      },
+      err => {
+        res.send([]);
+      }
+    )
+    .catch(err => {
+      res.send([]);
     });
 });
 
