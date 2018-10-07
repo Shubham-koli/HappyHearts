@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="./assets/img/apple-icon.png">
+    <link rel="icon" href="./assets/img/favicon.png">
+    <title>
+        Login
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.0">
+    <!-- Documentation extras -->
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="./assets/assets-for-demo/demo.css" rel="stylesheet" />
+    <link href="./assets/assets-for-demo/vertical-nav.css" rel="stylesheet" />
+</head>
+
+<body>
+        <div id="input" class="section section-signup page-header" style="background-image: url('assets/img/back1.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 ml-auto mr-auto">
+                        <div class="card card-signup">
+                            <form class="form" id="sign-in-form" action="#">
+                                <div class="card-header card-header-primary text-center">
+                                    <h4>Sign in</h4>
+
+                                </div>
+                                <p class="text-divider">Enter your valid credentials. </p>
+                                <div class="card-body">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">account_circle</i>
+                                        </span>
+                                        <input id="email_ID" type="email" class="form-control"  placeholder="enter email here...">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">&#xE897;</i>
+                                        </span> 
+                                        <input id="pass" type="password" class="form-control"  placeholder="enter password here...">
+                                    </div>
+
+                                </div>
+                                <div class="card-footer justify-content-center">
+                                    <button  type="button" id="sign-in" class="btn btn-primary btn-round" onclick="onSignIn()">sign in</button>
+                                    <!-- <button  type="button" id="sign-up" class="btn btn-primary btn-round">sign up</button> -->
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/bootstrap-material-design.js"></script>
+    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+    <script src="./assets/js/plugins/moment.min.js"></script>
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="./assets/js/plugins/nouislider.min.js"></script>
+    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+    <script src="./assets/js/material-kit.js?v=2.0.0"></script>
+    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+    <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
+    <script>
+        function onSignIn(){
+        var user = document.getElementById('email_ID').value;
+        var pass = document.getElementById('pass').value;
+        console.log(user+" "+pass);
+
+        if(user == 'HS12345' && pass == 'pass123')
+            window.location="home.html";
+        }
+    </script>
+   
+</body>
+
+</html>

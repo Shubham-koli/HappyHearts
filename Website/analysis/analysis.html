@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Happy Hearts</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../img/favicon.png" rel="icon">
+  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Bootstrap css -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../lib/modal-video/css/modal-video.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: eStartup
+    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+  <script type="text/javascript">
+    // window.onload = function () {
+    
+    // var chart = new CanvasJS.Chart("chartContainer", {
+    //   theme: "light1", // "light2", "dark1", "dark2"
+    //   animationEnabled: false, // change to true		
+    //   title:{
+    //     text: "Basic Column Chart"
+    //   },
+    //   data: [
+    //   {
+    //     // Change type to "bar", "area", "spline", "pie",etc.
+    //     type: "column",
+    //     dataPoints: [
+    //       { label: "apple",  y: 10  },
+    //       { label: "orange", y: 15  },
+    //       { label: "banana", y: 25  },
+    //       { label: "mango",  y: 30  },
+    //       { label: "grape",  y: 28  }
+    //     ]
+    //   }
+    //   ]
+    // });
+    // chart.render();
+    
+    // }
+    </script>
+</head>
+
+<body>
+
+  <header id="header" class="header header-hide">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+          <h1><a href="#" class="scrollto"><span>H</span>appy</a>&nbsp;<a href="#" class="scrollto"><span>H</span>earts</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="#about-us">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <!-- <li><a href="#screenshots">Screenshots</a></li> -->
+          <!-- <li><a href="#team">Team</a></li> -->
+          <!-- <li><a href="#pricing">Pricing</a></li> -->
+          <!-- <li class="menu-has-children"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li> -->
+          <!-- <li><a href="#blog">Blog</a></li> -->
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+  <!--==========================
+    Features Section
+  ============================-->
+
+  <section id="features" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Analysis.</h2>
+        <p class="separator"> A Better Life.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+         <div class="col-md-6 col-lg-3">
+          <div class="feature-block">
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <div class="feature-block">
+                <div class="form-group">
+                    <input type="text" id="disease1" placeholder="Enter Disease Here" class="form-control">
+                </div>
+                <div class="form-group">
+                        <input type="text" id="disease2" placeholder="Enter Disease Here" class="form-control">
+                </div>
+                <div class="form-group">
+                        <input type="text" id="disease3" placeholder="Enter Disease Here" class="form-control">
+                </div> 
+                <div class="form-group">
+                  <button class="btn btn-info" name="submit" onclick="sendData()">Submit</button>
+                  <button class="btn btn-danger" name="submit" onclick="back()">Back</button>
+                </div> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Graph Section-->
+  <div class="container">
+    <div class="row">
+
+       <div class="col-md-6 col-lg-3">
+        <div class="feature-block">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <div class="feature-block">
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            <br>
+            <br>
+            <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">Happy Hearts</a>
+            <!--  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p> -->
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Support</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">faq</a></li>
+              <li><a href="#">Editor help</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="copyrights">
+      <div class="container">
+        <p>&copy; Copyrights eStartup. All rights reserved.</p>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../lib/superfish/hoverIntent.js"></script>
+  <script src="../lib/superfish/superfish.min.js"></script>
+  <script src="../lib/easing/easing.min.js"></script>
+  <script src="../lib/modal-video/js/modal-video.js"></script>
+  <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../lib/wow/wow.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <script>
+      function back(){
+        window.location = "../home.html";
+      }
+
+      function sendData(){
+        let disease1 = document.getElementById('disease1').value;
+        let disease2 = document.getElementById('disease2').value;
+        let disease3 = document.getElementById('disease3').value;
+        let a=10,b=40,c=50;
+        let disease = {
+          disease1 : disease1,
+          disease2 : disease2,
+          disease3 : disease3
+        };
+        console.log(disease1+" "+disease2+" "+disease3);
+        var URL = 'http://192.168.43.138:4000/analytics';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', URL, true);
+        console.log("before onload");
+        xhr.onload = function()
+        {
+          let data = JSON.parse(this.responseText);
+          console.log(data);
+          a = data.malaria;
+          b = data.Dengue;
+          c = data.ZikaVirus;
+          console.log(a+" "+b+" "+c);
+            var chart = new CanvasJS.Chart("chartContainer", {
+            theme: "dark1", // "light2", "dark1", "dark2"
+            animationEnabled: true, // change to true		
+            title:{
+              text: "Analytic Chart"
+            },
+            data: [
+            {
+              // Change type to "bar", "area", "spline", "pie",etc.
+              type: "column",
+              dataPoints: [
+                { label: "malaria",  y: a },
+                { label: "Dengue", y: b  },
+                { label: "ZikaVirus", y: c }
+              ]
+            }
+            ]
+          });
+          chart.render();
+        }
+        console.log("before data send");
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        //xhr.send(data);
+        console.log(JSON.stringify(disease));
+        //jsondataRow.$class = "org.example.basic.Patient";
+        console.log(JSON.stringify(disease));
+        xhr.send(JSON.stringify(JSON.parse(JSON.stringify(disease))));
+      
+
+      /* Analytics Graph code */
+        
+      // window.onload = function () {
+    
+    
+    
+   // }
+  }
+  </script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+</body>
+</html>

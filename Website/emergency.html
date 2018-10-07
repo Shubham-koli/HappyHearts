@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Happy Hearts</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../img/favicon.png" rel="icon">
+  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Bootstrap css -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../lib/modal-video/css/modal-video.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header header-hide">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+          <h1><a href="#" class="scrollto"><span>H</span>appy</a>&nbsp;<a href="#" class="scrollto"><span>H</span>earts</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="#about-us">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <!-- <li><a href="#screenshots">Screenshots</a></li> -->
+          <!-- <li><a href="#team">Team</a></li> -->
+          <!-- <li><a href="#pricing">Pricing</a></li> -->
+          <!-- <li class="menu-has-children"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li> -->
+          <!-- <li><a href="#blog">Blog</a></li> -->
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+  <!--==========================
+    Features Section
+  ============================-->
+
+  <section id="features" class="padd-section text-center wow fadeInUp">
+
+    <div class="container" style="background-image: url('img/back1.jpg');">
+      <div class="section-title text-center">
+        <h1>Emergency Portal.</h1>
+        <h5>.</h5>
+        <p class="separator">.....</p>
+      </div>
+    </div>
+    <p class="separator"><b>Every health record accessed here will be notified to the corresponding patient.</b></p>
+    <div class="container" id="input" >
+      <div class="row">
+
+         <div class="col-md-6 col-lg-3">
+          <div class="feature-block">
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <div class="feature-block">
+                <div class="form-group">
+                    <input type="text" id="adharId" placeholder="Enter patient adhar number Here" class="form-control">
+                </div>
+                <div class="form-group">
+                        <input type="text" id="gID" placeholder="Enter guardian id Here" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-info" name="submit" onclick="sendData()">Submit</button>
+                  <button class="btn btn-danger" name="submit" onclick="back()">Back</button>
+                </div> 
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="container" id="table">
+          <div class="row">
+            <div class="col-md-6 col-lg-2">
+              <div class="feature-block">
+
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-8">
+              <div class="feature-block">
+                <table class="table">
+                  <tbody id="tbody">
+                    <!-- <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                    </tr> -->
+                    <tr><button class="btn btn-danger" name="submit" onclick="back()">Back</button></tr>
+                    
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">Happy Hearts</a>
+              <!--
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p> -->
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Support</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">faq</a></li>
+              <li><a href="#">Editor help</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </footer>
+
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="../lib/jquery/jquery.min.js"></script>
+  <script src="../lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../lib/superfish/hoverIntent.js"></script>
+  <script src="../lib/superfish/superfish.min.js"></script>
+  <script src="../lib/easing/easing.min.js"></script>
+  <script src="../lib/modal-video/js/modal-video.js"></script>
+  <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../lib/wow/wow.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#table').hide();
+    });
+      function back(){
+        window.location = "home.html";
+      }
+
+      function sendData(){
+        $('#input').hide();
+        $('#table').show();
+        let adhar = document.getElementById('adharId').value;
+        let gId = document.getElementById('gID').value;
+     
+
+        let data = {
+          AdharNo : adhar,
+          guardians : gId,
+          Hospital_ID : "HS1234",
+          Staff_ID : "receipinist"
+        };
+
+        let t = document.getElementById('tbody');
+        console.log(data);
+        console.log(adhar+" "+gID);
+        var URL = 'http://192.168.43.138:4000/emergencyportal';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', URL, true);
+        console.log("before onload");
+        xhr.onload = function()
+        {
+          if(xhr.readyState == 4 && xhr.status == 200)
+          {
+            let jsonData = JSON.parse(this.responseText);
+          console.log("jsondata ",jsonData);
+          t.innerHTML += "<tr><th scope='row'>AdharNo</th><td>"+jsonData.AdharNo+"</td></tr><tr><th scope='row'>Name</th><td>"+jsonData.firstName+" "+jsonData.lastName+"</td> </tr><tr><th scope='row'>Date of birth</th><td>"+jsonData.Dob+"</td></tr><tr><th scope='row'>Blood Group</th><td>"+jsonData.BloodGroup+"</td></tr><tr><th scope='row'>Gender</th><td>"+jsonData.Gender+"</td></tr><tr><th scope='row'>Address</th><td>"+jsonData.address+"</td></tr><tr><th scope='row'>Guardians</th><td>"+jsonData.guardians+"</td></tr>";
+          }
+        else
+        {
+          alert("Your adhar id and corresponding guardian id doesn't match");
+        }
+          
+        }
+        console.log("before data send");
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        //xhr.send(data);
+        console.log(JSON.stringify(data));
+        //jsondataRow.$class = "org.example.basic.Patient";
+        console.log(JSON.stringify(data));
+        xhr.send(JSON.stringify(JSON.parse(JSON.stringify(data))));
+     
+
+  }
+  </script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+</body>
+</html>

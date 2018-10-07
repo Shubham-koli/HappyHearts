@@ -1,0 +1,148 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * A business network where members can grant/revoke access to their personal information to other members
+ */
+namespace org.example.basic
+
+
+
+participant Patient identified by AdharNo 
+{
+  o String AdharNo
+  o String firstName
+  o String lastName
+  o String Dob
+  o String BloodGroup
+  o String Gender
+  o String contact optional
+  o String address
+  o String TransactionId optional
+  o String guardians optional
+  
+}
+
+participant InsurerPolicy identified by policyId
+{
+  o String policyId
+  o String InsurerName
+  o String CustomerAdharNo
+  o String expiry
+  
+  o String Dob  
+  o String Gender
+  o String contact optional
+  o String address
+  
+  o String HospitalFees 
+  o String ConsultancyFees 
+  o String PharmacyFees 
+  o String AcFees 
+  
+  o String guardians optional  //if patient dies then guardian can also submit the policy claim.
+}
+
+transaction claimTransaction {
+  --> claimDetails contract
+  --> InsurerPolicy insurer
+  o String HospitalFees 
+  o String ConsultancyFees 
+  o String PharmacyFees 
+  o String AcFees
+  o String claimStatus optional
+}
+
+
+abstract transaction TreatmentTransaction {
+    --> PatientData patientData
+}
+
+transaction TreatmentDetails extends TreatmentTransaction{
+  
+  o String HospitalName
+  o String StaffId
+  o String PinCode
+  
+  o String ChronicDisease optional
+  o String Disease optional
+  o String DiseaseType optional
+  o String DiseaseCategory optional
+  o String DiseaseSubCategory optional
+  
+  o String symptom optional
+  o String allergies optional
+  o String Flag optional
+  o String weight optional
+  
+  o String AlcoholConsumption optional
+  o String SmokingHabits optional
+  
+  o String medicines optional
+  o String tests optional
+  
+  o String HospitalFees optional
+  o String ConsultancyFees optional
+  o String PharmacyFees optional
+  o String AcFees optional
+  o String claimStatus optional
+}
+
+asset PatientData identified by EHR_ID
+{
+  o String EHR_ID
+  o TreatmentDetails[] TreatmentDetails optional
+}
+
+abstract transaction AccessRecords {
+    --> AccessRecord accessRecord
+}
+
+
+asset claimDetails identified by claimId {
+  o String claimId
+  
+  o String InsurerId optional
+  o String PatientAdharNumber optional
+  
+  o String claimed_HospitalFees optional
+  o String claimed_ConsultancyFees optional
+  o String claimed_PharmacyFees optional
+  o String claimed_AcFees optional
+   
+} 
+
+transaction Record extends AccessRecords{
+	o String HospitalName
+	o String StaffId
+	o String AccessType
+}
+
+asset AccessRecord identified by AdharNo
+{
+  o String AdharNo
+  o Record[] Record optional
+}
+
+
+
+{
+  "$class": "org.example.basic.claimTransaction",
+  "contract": "resource:org.example.basic.claimDetails#policyid+adharno",
+  "insurer": "resource:org.example.basic.InsurerPolicy#policyid",
+  "HospitalFees": "3000",
+  "ConsultancyFees": "3000",
+  "PharmacyFees": "3000",
+  "AcFees": "3000"
+}
