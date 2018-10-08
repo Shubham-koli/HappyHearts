@@ -131,7 +131,7 @@ let emergencyAccessGRANT = data => {
 let accessOPEN = data => {
   return new Promise((resolve, reject) => {
     let AdharNo = data.AdharNo;
-    Access.findOne({ _id: AdharNo })
+    Access.findOne({ _id: AdharNo, Status: "OPEN" })
       .then(
         doc => {
           // resolve(doc);

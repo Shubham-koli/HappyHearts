@@ -32,7 +32,8 @@ const {
 const {
   processData,
   getPatient,
-  getPatientData
+  getPatientData,
+  getPatientHistory
 } = require("./routes/getPatient");
 //This module creates a new patient's private key entry in the MongoDB
 const { createPatientEntry } = require("./EHR/MongoDB/storeKey");
@@ -567,6 +568,29 @@ app.post("/openaccess", (req, res) => {
     )
     .catch(err => {
       res.send([]);
+    });
+});
+
+app.post("/patienthistory", (req, response) => {
+  console.log("request to view patient treatment history recieved");
+  console.log(req.body);
+  let AdharNo = req.body[0].AdharNo;
+  getPatientHistory(AdharNo)
+    .then(
+      doc => {
+        doc.status = "200";
+        response.send(doc);
+      },
+      err => {
+        response.send({
+          status: "402"
+        });
+      }
+    )
+    .catch(error => {
+      response.send({
+        status: "500"
+      });
     });
 });
 
