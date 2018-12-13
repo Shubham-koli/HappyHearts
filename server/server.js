@@ -36,8 +36,13 @@ const {
   getPatientHistory
 } = require("./routes/getPatient");
 //This module creates a new patient's private key entry in the MongoDB
-const { createPatientEntry } = require("./EHR/MongoDB/storeKey");
-const { saveTreatment, mongoEncrypt } = require("./EHR/MongoDB/Analytics");
+const {
+  createPatientEntry
+} = require("./EHR/MongoDB/storeKey");
+const {
+  saveTreatment,
+  mongoEncrypt
+} = require("./EHR/MongoDB/Analytics");
 const {
   createPatientData, // it creates new Asset of PatientData (Patient's Treatment's history)
   createAccessRecord //// it creates new Asset of Record (Patient's EHR Access Record)
@@ -53,8 +58,12 @@ const {
   emergencyAccessGRANT
 } = require("./EHR/MongoDB/Consent");
 
-const { getGrantPatients } = require("./EHR/MongoDB/getPatient");
-const { getName } = require("./EHR/MongoDB/patientName");
+const {
+  getGrantPatients
+} = require("./EHR/MongoDB/getPatient");
+const {
+  getName
+} = require("./EHR/MongoDB/patientName");
 
 // Modules to store Access log into blockchain
 const {
@@ -62,10 +71,24 @@ const {
   denyRecord,
   emergency_access
 } = require("./routes/storeRecord");
-const { lastRecord } = require("../server/routes/getLastRecord");
-const { getHospitalName } = require("./EHR/MongoDB/getHospital");
+const {
+  lastRecord
+} = require("../server/routes/getLastRecord");
+const {
+  getHospitalName
+} = require("./EHR/MongoDB/getHospital");
 
-const { addNewPatient } = require("./EHR/MongoDB/createUser");
+const {
+  addNewPatient
+} = require("./EHR/MongoDB/createUser");
+
+// Insurer Modules
+
+const {
+  getPolicy,
+  addPolicy
+} = require("./Insurer/policies");
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -252,7 +275,9 @@ app.post("/newtreatment", (req, response) => {
       }
     })
     .catch(err => {
-      response.sendStatus(401);
+      response.sendStatus({
+        status: "401"
+      });
     });
 });
 
@@ -398,51 +423,47 @@ app.post("/deny", (req, response, next) => {
 });
 
 app.post("/test", (req, res) => {
-  res.send(
-    {
-      HospitalName: "Civil",
-      HospitalId: "id",
-      StaffId: "Deserunt qui.",
-      StaffName: "Dr.Bare",
-      Address: "address",
-      ChronicDisease: "Minim aute esse minim laborum.",
-      Disease: "Nulla duis.",
-      DiseaseType: "Consectetur aute.",
-      DiseaseCategory: "Exercitation sunt.",
-      DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
-      allergies: "Esse commodo.",
-      AlcoholConsumption: "Occaecat nulla.",
-      SmokingHabits: "Elit esse excepteur.",
-      medicines: "Deserunt amet.",
-      tests: "Officia id ex nisi.",
-      Date: "2018-09-28"
-    },
-    {
-      HospitalName: "Civil",
-      HospitalId: "id",
-      StaffId: "Deserunt qui.",
-      StaffName: "Dr.Bare",
-      Address: "address",
-      ChronicDisease: "Minim aute esse minim laborum.",
-      Disease: "Nulla duis.",
-      DiseaseType: "Consectetur aute.",
-      DiseaseCategory: "Exercitation sunt.",
-      DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
-      allergies: "Esse commodo.",
-      AlcoholConsumption: "Occaecat nulla.",
-      SmokingHabits: "Elit esse excepteur.",
-      medicines: "Deserunt amet.",
-      tests: "Officia id ex nisi.",
-      Date: "2018-09-28"
-    }
-  );
+  res.send({
+    HospitalName: "Civil",
+    HospitalId: "id",
+    StaffId: "Deserunt qui.",
+    StaffName: "Dr.Bare",
+    Address: "address",
+    ChronicDisease: "Minim aute esse minim laborum.",
+    Disease: "Nulla duis.",
+    DiseaseType: "Consectetur aute.",
+    DiseaseCategory: "Exercitation sunt.",
+    DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
+    allergies: "Esse commodo.",
+    AlcoholConsumption: "Occaecat nulla.",
+    SmokingHabits: "Elit esse excepteur.",
+    medicines: "Deserunt amet.",
+    tests: "Officia id ex nisi.",
+    Date: "2018-09-28"
+  }, {
+    HospitalName: "Civil",
+    HospitalId: "id",
+    StaffId: "Deserunt qui.",
+    StaffName: "Dr.Bare",
+    Address: "address",
+    ChronicDisease: "Minim aute esse minim laborum.",
+    Disease: "Nulla duis.",
+    DiseaseType: "Consectetur aute.",
+    DiseaseCategory: "Exercitation sunt.",
+    DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
+    allergies: "Esse commodo.",
+    AlcoholConsumption: "Occaecat nulla.",
+    SmokingHabits: "Elit esse excepteur.",
+    medicines: "Deserunt amet.",
+    tests: "Officia id ex nisi.",
+    Date: "2018-09-28"
+  });
 });
 
 app.post("/patientlist", (req, response) => {
   // console.log(req.body);
   console.log(`Getting Patient's List for Hospital ${req.body[0].Hospital_ID}`);
-  console.log(req.body);
-  -[];
+  console.log(req.body); - [];
   async function getPatientDetails(data, response) {
     let patientDetails = [];
     let aadharID = await getGrantPatients(data);
@@ -593,6 +614,31 @@ app.post("/patienthistory", (req, response) => {
       });
     });
 });
+
+app.post("/policy", (req, response) => {
+  getPolicy(req.body.AdharNo, req.body.insurer).then(doc => {
+    console.log(`Data fetched for ${doc.policyId}`);
+    doc.status = "200";
+    response.send(doc);
+  }).catch(err => {
+    response.send({
+      status: "402"
+    });
+  })
+})
+
+app.post("/addpolicy", (req, response) => {
+  addPolicy(req.body).then(doc => {
+    response.send({
+      status: "200"
+    });
+  }).catch(err => {
+    console.log(err);
+    response.send({
+      status: "402"
+    });
+  })
+})
 
 app.listen(4000, () => {
   console.log("Started on port 4000");
