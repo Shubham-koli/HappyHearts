@@ -78,10 +78,26 @@ let processData = (data, Hospital_ID) => {
   });
 };
 
+//get patient treatment history by adhar No
+
+let getPatientHistory = AdharNo => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${REST_URL}/org.example.basic.PatientData/${AdharNo}`)
+      .then(response => {
+        resolve(response.data.TreatmentDetails);
+      })
+      .catch(function(error) {
+        reject(402);
+      });
+  });
+};
+
 module.exports = {
   getPatient, //This module takes Aadhar No and finds record for that Aadhar No in the blockchain.
   getPatientData,
-  processData
+  processData,
+  getPatientHistory
 };
 
 // let data = {
