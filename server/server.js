@@ -89,6 +89,10 @@ const {
   addPolicy
 } = require("./Insurer/policies");
 
+const {
+  filterClaims
+} = require("./Insurer/insurance");
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -615,6 +619,8 @@ app.post("/patienthistory", (req, response) => {
     });
 });
 
+//Insurer Routes
+
 app.post("/policy", (req, response) => {
   getPolicy(req.body.AdharNo, req.body.insurer).then(doc => {
     console.log(`Data fetched for ${doc.policyId}`);
@@ -639,6 +645,48 @@ app.post("/addpolicy", (req, response) => {
     });
   })
 })
+
+app.post("/getdata", (req, response) => {
+  console.log(req.body);
+  let AadharNo = req.body[0].AdharNo;
+  let Hospital_ID = req.body[0].Hospital_ID;
+  getPatientData(AadharNo)
+    .then(
+      result => {
+        console.log("Fetching Data from Blockchain");
+        decrypt_TreatmentDetails_UsingFabricKey(result).then(result1 => {
+          console.log("decrypted using Fabric Key");
+          async function getData(result1) {
+            let data = [];
+            result1.TreatmentDetails.forEach(record => {
+              processData(record, req.body[0].Hospital_ID)
+                .then(details => {
+                  data.push(details);
+                  if (result1.TreatmentDetails.length == data.length) {
+                    filterClaims(data, AadharNo).then(doc => {
+                      response.send(doc);
+                    })
+                  }
+                })
+                .catch(err => {
+                  console.log(err);
+                  response.send(err);
+                });
+            });
+          }
+          getData(result1);
+        });
+      },
+      errorMessage => {
+        console.log(errorMessage);
+        response.sendStatus(404);
+      }
+    )
+    .catch(errorMessage => {
+      console.log(errorMessage);
+      response.sendStatus(404);
+    });
+});
 
 app.listen(4000, () => {
   console.log("Started on port 4000");
