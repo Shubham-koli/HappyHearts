@@ -12,17 +12,32 @@ let Claim = mongoose.model("Claim", {
     },
     Treatment: [{
         TransactionID: String,
-        claimStatus: String
+        claimStatus: String,
+        insurer: String
     }]
 });
 
-let Claims = AdharNo => {
+let initClaim = AdharNo => {
     return new Promise((resolve, reject) => {
         let newClaim = new Claim({
             _id: AdharNo
         });
 
         newClaim.save().then(doc => {
+            Claim.findOneAndUpdate({
+                    _id: AdharNo
+                }, {
+                    $push: {
+                        Treatment: ClaimDetails
+                    }
+                },
+                function (error, success) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(success);
+                    }
+                });
             resolve(200);
         }).catch(err => {
             reject(500);
@@ -31,8 +46,9 @@ let Claims = AdharNo => {
 }
 
 let ClaimDetails = {
-    TransactionID: '0a7c9ac08720878fed17acf7b611945cabb60ccb077496b73bd09226885be51a',
-    claimStatus: 'OPEN'
+    TransactionID: 'test',
+    claimStatus: 'OPEN',
+    insurer: 'test'
 }
 
 // Claims('8421999884').then(doc => {
@@ -45,6 +61,11 @@ let ClaimDetails = {
 //     });
 // });
 
+// initClaim('123').then(doc => {
+//     console.log(doc);
+// }).catch(err => {
+//     console.log(err);
+// })
 
 // Claim.findOneAndUpdate({
 //         _id: '8421999884'
@@ -62,5 +83,6 @@ let ClaimDetails = {
 //     });
 
 module.exports = {
-    Claim
+    Claim,
+    initClaim
 };
