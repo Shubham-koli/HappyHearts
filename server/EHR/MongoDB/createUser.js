@@ -1,5 +1,9 @@
-const { mongoose } = require("./mongoose");
-const { Patient } = require("../models/Patient");
+const {
+  mongoose
+} = require("./mongoose");
+const {
+  Patient
+} = require("../models/Patient");
 
 let addNewPatient = (AdharNo, firstName, lastName) => {
   return new Promise((resolve, reject) => {
