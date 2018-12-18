@@ -15,7 +15,7 @@ const {
 
 let AdharNo = "8421999884";
 let transaction =
-  "ffb28b78354cd1168b2c383c179c231ebb726ec618ac0cdf121c669cf82a8bf4";
+  "977a5bf50b15a709020ca66e679acced498a87903e6084f7b092cdf7d855b828";
 
 let getPatientHistory = AdharNo => {
   return new Promise((resolve, reject) => {
@@ -39,16 +39,16 @@ async function getFees(AdharNo, transactionId) {
   //console.log(res);
   try {
     if (res.hasOwnProperty("HospitalFees")) {
-      result.HospitalFees = res.HospitalFees;
+      result.Hospital_Fees = res.HospitalFees;
     }
     if (res.hasOwnProperty("ConsultancyFees")) {
-      result.ConsultancyFees = res.ConsultancyFees;
+      result.Consultancy_Fees = res.ConsultancyFees;
     }
     if (res.hasOwnProperty("PharmacyFees")) {
-      result.PharmacyFees = res.PharmacyFees;
+      result.Pharmacy_Fees = res.PharmacyFees;
     }
     if (res.hasOwnProperty("AcFees")) {
-      result.AcFees = res.AcFees;
+      result.AC_Fees = res.AcFees;
     }
     if (res.hasOwnProperty("Disease")) {
       result.Disease = res.Disease;
