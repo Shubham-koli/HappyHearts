@@ -90,8 +90,14 @@ const {
 } = require("./Insurer/policies");
 
 const {
-  filterClaims
+  filterClaims,
+  addClaim,
+  viewDetails
 } = require("./Insurer/insurance");
+
+const {
+  initClaim
+} = require("./EHR/models/claimStatus");
 
 var app = express();
 app.use(bodyParser.json());
@@ -210,6 +216,13 @@ app.post("/newpatient", (req, res) => {
     })
     .catch(err => {
       console.log(err);
+    });
+  initClaim(req.body.AdharNo)
+    .then(doc => {
+      console.log("Claim initialized for the User");
+    })
+    .catch(err => {
+      console.log("Failed to intialize claim for the user");
     });
 });
 
@@ -622,31 +635,35 @@ app.post("/patienthistory", (req, response) => {
 //Insurer Routes
 
 app.post("/policy", (req, response) => {
-  getPolicy(req.body.AdharNo, req.body.insurer).then(doc => {
-    console.log(`Data fetched for ${doc.policyId}`);
-    doc.status = "200";
-    response.send(doc);
-  }).catch(err => {
-    response.send({
-      status: "402"
+  getPolicy(req.body.AdharNo, req.body.insurer)
+    .then(doc => {
+      console.log(`Data fetched for ${doc.policyId}`);
+      doc.status = "200";
+      response.send(doc);
+    })
+    .catch(err => {
+      response.send({
+        status: "402"
+      });
     });
-  })
-})
+});
 
 app.post("/addpolicy", (req, response) => {
-  addPolicy(req.body).then(doc => {
-    response.send({
-      status: "200"
+  addPolicy(req.body)
+    .then(doc => {
+      response.send({
+        status: "200"
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      response.send({
+        status: "402"
+      });
     });
-  }).catch(err => {
-    console.log(err);
-    response.send({
-      status: "402"
-    });
-  })
-})
+});
 
-app.post("/getdata", (req, response) => {
+app.post("/getrecords", (req, response) => {
   console.log(req.body);
   let AadharNo = req.body[0].AdharNo;
   let Hospital_ID = req.body[0].Hospital_ID;
@@ -665,7 +682,7 @@ app.post("/getdata", (req, response) => {
                   if (result1.TreatmentDetails.length == data.length) {
                     filterClaims(data, AadharNo).then(doc => {
                       response.send(doc);
-                    })
+                    });
                   }
                 })
                 .catch(err => {
@@ -685,6 +702,43 @@ app.post("/getdata", (req, response) => {
     .catch(errorMessage => {
       console.log(errorMessage);
       response.sendStatus(404);
+    });
+});
+
+app.post("/addclaim", (req, response) => {
+  console.log(req.body);
+  addClaim(req.body.AdharNo, req.body.transactionId, req.body.insurer)
+    .then(doc => {
+      if (doc == "200") {
+        response.send({
+          status: "200"
+        });
+      } else {
+        response.send({
+          status: "200"
+        });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      response.send({
+        status: "500"
+      });
+    });
+});
+
+app.post("/viewdetails", (req, response) => {
+  console.log(req.body);
+  viewDetails(req.body.AdharNo, req.body.transactionId, req.body.insurer)
+    .then(doc => {
+      console.log("viewDetails Called");
+      response.send(doc);
+    })
+    .catch(err => {
+      console.log(err);
+      response.send({
+        status: "500"
+      });
     });
 });
 
