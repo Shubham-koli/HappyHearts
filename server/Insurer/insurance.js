@@ -6,6 +6,15 @@ const {
     Claim
 } = require("../EHR/models/claimStatus");
 
+const {
+    getPolicy
+} = require("./policies");
+
+const {
+    getFees
+} = require("../routes/TreatmentFees");
+
+const _ = require("lodash");
 
 
 let data = [{
@@ -106,6 +115,34 @@ let getClaims = AdharNo => {
     })
 }
 
+let addClaim = (AdharNo, TransactionID, insurerName) => {
+    let ClaimDetails = {
+        TransactionID: TransactionID,
+        claimStatus: 'UNDER PROCESS',
+        insurer: insurerName
+    }
+    return new Promise((resolve, reject) => {
+        Claim.findOneAndUpdate({
+            _id: AdharNo
+        }, {
+            $push: {
+                Treatment: ClaimDetails
+            }
+        }).then(doc => {
+            resolve(200);
+        }).catch(err => {
+            console.log(err);
+            reject(500);
+        })
+
+    })
+}
+
+// addClaim('8421999884', '0a7c9ac08720878fed17acf7b611945cabb60ccb077496b73bd09226885be51d', 'Bajaj').then(doc => {
+//     console.log(doc)
+// })
+
+
 // getClaims('8421999884').then(doc => {
 //     console.log(doc);
 // }).catch(err => {
@@ -131,7 +168,8 @@ let filterClaims = (data, AdharNo) => {
                             }
                         }
                         if (data.length == tmp.length) {
-                            resolve(tmp);
+                            let non_duplidated_data = _.uniq(tmp, 'transactionId');
+                            resolve(non_duplidated_data);
                         }
 
                     });
@@ -152,6 +190,40 @@ let filterClaims = (data, AdharNo) => {
 //     console.log(doc);
 // })
 
+let viewDetails = async (AdharNo, transactionId, insurer) => {
+
+    try {
+        let policyDetails = await getPolicy(AdharNo, insurer);
+        let treatmentFees = await getFees(AdharNo, transactionId);
+        let details = treatmentFees;
+        // console.log(treatmentFees);
+        details.You_Can_Claim_Hospital_Fees_Upto = policyDetails.HospitalFees;
+        details.You_Can_Claim_Consultancy_Fees_Upto = policyDetails.ConsultancyFees;
+        details.You_Can_Claim_Pharmacy_Fees_Upto = policyDetails.PharmacyFees;
+        details.You_Can_Claim_AC_Fees_Upto = policyDetails.AcFees;
+        details.Your_Insurers_Name = policyDetails.InsurerName;
+        details.Your_Adhar_No = policyDetails.CustomerAdharNo
+        details.Expiry_Date_Of_Insurance = policyDetails.expiry;
+        details.status = "200";
+        delete policyDetails;
+        delete treatmentFees;
+        return new Promise((resolve, reject) => {
+            resolve(details);
+        }).catch(err => {
+            reject(500);
+        });
+    } catch (error) {
+        console.log('error in viewDetails async function');
+    }
+
+}
+
+// viewDetails('8421999884', '977a5bf50b15a709020ca66e679acced498a87903e6084f7b092cdf7d855b828', 'Bajaj').then(doc => {
+//     console.log(doc);
+// })
+
 module.exports = {
-    filterClaims
+    filterClaims,
+    addClaim,
+    viewDetails
 }
