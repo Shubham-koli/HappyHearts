@@ -1,7 +1,13 @@
 require("dotenv").config();
-const { mongoose } = require("../MongoDB/mongoose");
-const { Treatment } = require("../models/AnalyticalData");
-const { encryptObject } = require("../encryption/encryption-promise");
+const {
+  mongoose
+} = require("../MongoDB/mongoose");
+const {
+  Treatment
+} = require("../models/AnalyticalData");
+const {
+  encryptObject
+} = require("../encryption/encryption-promise");
 const CIPHER_KEY = process.env.MONGODB_KEY;
 
 //This Module takes Treatment Details data as input and removes personal identification things and stores it into MongoDB
@@ -21,7 +27,11 @@ let saveTreatment = data => {
       AlcoholConsumption: data.AlcoholConsumption,
       SmokingHabits: data.SmokingHabits,
       medicines: data.medicines,
-      tests: data.tests
+      tests: data.tests,
+      HospitalFees: data.HospitalFees,
+      ConsultancyFees: data.ConsultancyFees,
+      PharmacyFees: data.PharmacyFees,
+      AcFees: data.AcFees
     });
     // console.log(typeof newTreatment);
     newTreatment.save().then(
@@ -138,7 +148,50 @@ let mongoEncrypt = data => {
 //     console.log(err);
 //   });
 
+let diseaseCount = (data) => {
+  return new Promise((resolve, reject) => {
+    // console.log(data);
+    let result = {};
+    result.count = [];
+    data.input.forEach(disease => {
+      Treatment.find({
+        Disease: disease
+      }).then(cnt => {
+        let tmp = {
+          DiseaseName: disease,
+          count: cnt.length
+        }
+
+        result.count.push(tmp);
+        if ((result.count.length) == data.input.length) {
+          resolve(result);
+        }
+      }).catch(err => {
+        console.log(err);
+        reject(err);
+      })
+    })
+
+  });
+}
+
+// let data = {
+//   input: [
+//     "Maleria",
+//     "Fever",
+//     'Stroke',
+//     'Zika'
+//   ]
+// }
+
+// diseaseCount(data).then(res => {
+//   console.log(res);
+// }).catch(err => {
+//   console.log(err);
+// })
+
 module.exports = {
   saveTreatment,
-  mongoEncrypt //It encrypts data which is to be stored in mongoDB
+  mongoEncrypt, //It encrypts data which is to be stored in mongoDB
+  diseaseCount
 };
