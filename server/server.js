@@ -87,7 +87,8 @@ const {
 
 const {
   getPolicy,
-  addPolicy
+  addPolicy,
+  initContract
 } = require("./Insurer/policies");
 
 const {
@@ -631,6 +632,11 @@ app.post("/addpolicy", (req, response) => {
         status: "402"
       });
     });
+  initContract(req.body).then(res => {
+    console.log();
+  }).catch(err => {
+    console.log(err);
+  });
 });
 
 app.post("/getrecords", (req, response) => {
@@ -736,6 +742,9 @@ app.post("/getclients", (req, response) => {
   })
 })
 
+app.post("/claim", (req, response) => {
+
+})
 app.listen(4000, () => {
   console.log("Started on port 4000");
 });
