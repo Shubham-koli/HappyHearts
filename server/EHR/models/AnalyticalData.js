@@ -75,6 +75,26 @@ let Treatment = mongoose.model("Analytics", {
     type: String,
     required: false,
     trim: 1
+  },
+  HospitalFees: {
+    type: String,
+    required: false,
+    trim: 1
+  },
+  ConsultancyFees: {
+    type: String,
+    required: false,
+    trim: 1
+  },
+  PharmacyFees: {
+    type: String,
+    required: false,
+    trim: 1
+  },
+  AcFees: {
+    type: String,
+    required: false,
+    trim: 1
   }
 });
 
