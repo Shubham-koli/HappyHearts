@@ -17,7 +17,7 @@ let getClients = (insurer) => {
                     claimStatus: "UNDER PROCESS",
                     insurer: insurer
                 })
-                result.push(res);
+                result.push(record._id);
             })
             result = _.compact(result)
             resolve(result)
@@ -27,11 +27,11 @@ let getClients = (insurer) => {
     })
 }
 
-// getClients('Bajaj').then(result => {
-//     console.log(result);
-// }).catch(err => {
-//     console.log(err);
-// })
+getClients('Bajaj').then(result => {
+    console.log(result);
+}).catch(err => {
+    console.log(err);
+})
 
 
 module.exports = {
