@@ -41,7 +41,8 @@ const {
 } = require("./EHR/MongoDB/storeKey");
 const {
   saveTreatment,
-  mongoEncrypt
+  mongoEncrypt,
+  diseaseCount
 } = require("./EHR/MongoDB/Analytics");
 const {
   createPatientData, // it creates new Asset of PatientData (Patient's Treatment's history)
@@ -98,6 +99,10 @@ const {
 const {
   initClaim
 } = require("./EHR/models/claimStatus");
+
+const {
+  detectFraud
+} = require("./Insurer/fraudDetection");
 
 var app = express();
 app.use(bodyParser.json());
@@ -226,15 +231,14 @@ app.post("/newpatient", (req, res) => {
     });
 });
 
-app.post("/analytics", (req, res) => {
-  console.log("analytics request received");
-  if (req.body != null) {
-    res.send({
-      malaria: 64,
-      Dengue: 24,
-      ZikaVirus: 12
-    });
-  }
+app.post("/analytics", (req, response) => {
+  console.log(`analytics request received for Disease ${req.body.input}`);
+  diseaseCount(req.body).then(result => {
+    response.send(result);
+  }).catch(err => {
+    console.log(err);
+    response.sendStatus(500);
+  })
 });
 
 app.post("/newtreatment", (req, response) => {
@@ -437,44 +441,6 @@ app.post("/deny", (req, response, next) => {
       console.log(errorMessage);
       response.sendStatus(404);
     });
-});
-
-app.post("/test", (req, res) => {
-  res.send({
-    HospitalName: "Civil",
-    HospitalId: "id",
-    StaffId: "Deserunt qui.",
-    StaffName: "Dr.Bare",
-    Address: "address",
-    ChronicDisease: "Minim aute esse minim laborum.",
-    Disease: "Nulla duis.",
-    DiseaseType: "Consectetur aute.",
-    DiseaseCategory: "Exercitation sunt.",
-    DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
-    allergies: "Esse commodo.",
-    AlcoholConsumption: "Occaecat nulla.",
-    SmokingHabits: "Elit esse excepteur.",
-    medicines: "Deserunt amet.",
-    tests: "Officia id ex nisi.",
-    Date: "2018-09-28"
-  }, {
-    HospitalName: "Civil",
-    HospitalId: "id",
-    StaffId: "Deserunt qui.",
-    StaffName: "Dr.Bare",
-    Address: "address",
-    ChronicDisease: "Minim aute esse minim laborum.",
-    Disease: "Nulla duis.",
-    DiseaseType: "Consectetur aute.",
-    DiseaseCategory: "Exercitation sunt.",
-    DiseaseSubCategory: "Ex exercitation deserunt aliqua.",
-    allergies: "Esse commodo.",
-    AlcoholConsumption: "Occaecat nulla.",
-    SmokingHabits: "Elit esse excepteur.",
-    medicines: "Deserunt amet.",
-    tests: "Officia id ex nisi.",
-    Date: "2018-09-28"
-  });
 });
 
 app.post("/patientlist", (req, response) => {
@@ -741,6 +707,20 @@ app.post("/viewdetails", (req, response) => {
       });
     });
 });
+
+app.post("/fraud", (req, response) => {
+  console.log("Fraud Detection Called");
+  detectFraud(req.body.Disease, req.body.transactionId).then(doc => {
+    console.log(doc);
+    if (doc.fraud == 'true') {
+      response.send(doc);
+    } else {
+      response.send(doc);
+    }
+  }).catch(err => {
+    console.log(err);
+  })
+})
 
 app.listen(4000, () => {
   console.log("Started on port 4000");
