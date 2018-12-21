@@ -34,6 +34,29 @@ let addPolicy = (data) => {
     })
 }
 
+let initContract = (data) => {
+    let contract = {
+        "$class": "org.example.basic.claimDetails",
+        "claimId": data.CustomerAdharNo + "+" + data.InsurerName
+    };
+    return new Promise((resolve, reject) => {
+        axios.post(`${REST_URL}/org.example.basic.claimDetails`, contract)
+            .then(function (response) {
+                if (response.status == 200) {
+                    console.log(`insurance contract generated for ${data.InsurerName} & ${data.CustomerAdharNo}`);
+                    resolve(200);
+                } else
+                    reject(response.data);
+            })
+            .catch(function (error) {
+                reject(error);
+            });
+
+        // console.log(data);
+    })
+
+}
+
 // let data = {
 //     "$class": "org.example.basic.InsurerPolicy",
 //     "policyId": "123+Bajaj",
@@ -58,5 +81,6 @@ let addPolicy = (data) => {
 
 module.exports = {
     getPolicy,
-    addPolicy
+    addPolicy,
+    initContract
 }
