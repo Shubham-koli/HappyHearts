@@ -143,41 +143,84 @@ let addClaim = (AdharNo, TransactionID, insurerName) => {
 //     console.log(err);
 // })
 
+// let filterClaims = (data, AdharNo) => {
+//     try {
+//         let tmp = [];
+//         return new Promise((resolve, reject) => {
+//             try {
+//                 getClaims(AdharNo).then(doc => {
+//                     doc.Treatment.forEach(element => {
+//                         for (let i = 0; i < data.length; i++) {
+//                             if ((element.TransactionID == data[i].transactionId) && (element.claimStatus == 'UNDER PROCESS')) {
+//                                 data[i].claimStatus = 'UNDER PROCESS';
+//                                 tmp.push(data[i]);
+
+//                             } else {
+//                                 data[i].claimStatus = 'OPEN';
+//                                 tmp.push(data[i]);
+//                             }
+//                         }
+//                         if (data.length == tmp.length) {
+//                             let non_duplidated_data = _.uniq(tmp, 'transactionId');
+//                             resolve(non_duplidated_data);
+//                         }
+
+//                     });
+//                 })
+//             } catch (error) {
+//                 console.log(error);
+//                 reject(500);
+//             }
+//         })
+
+//     } catch (error) {
+//         console.log(error);
+
+//     }
+// }
 let filterClaims = (data, AdharNo) => {
-    try {
-        let tmp = [];
-        return new Promise((resolve, reject) => {
-            try {
-                getClaims(AdharNo).then(doc => {
-                    doc.Treatment.forEach(element => {
-                        for (let i = 0; i < data.length; i++) {
-                            if ((element.TransactionID == data[i].transactionId) && (element.claimStatus == 'UNDER PROCESS')) {
-                                data[i].claimStatus = 'UNDER PROCESS';
-                                tmp.push(data[i]);
-
-                            } else {
-                                data[i].claimStatus = 'OPEN';
-                                tmp.push(data[i]);
-                            }
+    return new Promise((resolve, reject) => {
+        try {
+            let tmp = [];
+            data.forEach(ids => {
+                // console.log(ids.transactionId);
+                Claim.find({
+                    _id: AdharNo
+                }, {
+                    Treatment: {
+                        $elemMatch: {
+                            _id: ids.transactionId
                         }
-                        if (data.length == tmp.length) {
-                            let non_duplidated_data = _.uniq(tmp, 'transactionId');
-                            resolve(non_duplidated_data);
+                    }
+                }).then(doc => {
+                    // console.log(doc.Treatment);
+                    if (doc[0].Treatment.length > 0) {
+                        // console.log("Element Found", JSON.stringify(doc));
+                        ids.claimStatus = doc[0].Treatment[0].claimStatus;
+                        tmp.push(ids);
+                        // console.log(data.length, tmp.length);
+                        if (tmp.length == data.length) {
+                            resolve(tmp);
                         }
-
-                    });
+                    } else {
+                        // console.log("Element Not Found", doc);
+                        ids.claimStatus = 'OPEN';
+                        tmp.push(ids);
+                        if (tmp.length == data.length) {
+                            resolve(tmp);
+                        }
+                    }
                 })
-            } catch (error) {
-                console.log(error);
-                reject(500);
-            }
-        })
 
-    } catch (error) {
-        console.log(error);
+            });
 
-    }
+        } catch (err) {
+            console.log(err);
+            reject(err);
+        }
+    })
 }
+
 
 // filterClaims(data, '8421999884').then(doc => {
 //     console.log(doc);
