@@ -109,6 +109,10 @@ const {
   getClients
 } = require("./Insurer/getClients");
 
+const {
+  acceptClaim
+} = require("./Insurer/transaction");
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -729,6 +733,9 @@ app.post("/fraud", (req, response) => {
     }
   }).catch(err => {
     console.log(err);
+    response.send({
+      fraud: false
+    });
   })
 })
 
@@ -742,9 +749,14 @@ app.post("/getclients", (req, response) => {
   })
 })
 
-app.post("/claim", (req, response) => {
-
+app.post("/acceptclaim", (req, response) => {
+  acceptClaim(req.body).then(doc => {
+    req.sendStatus(200);
+  }).catch(err => {
+    req.sendStatus(500);
+  });
 })
+
 app.listen(4000, () => {
   console.log("Started on port 4000");
 });
