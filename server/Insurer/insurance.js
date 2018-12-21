@@ -19,90 +19,83 @@ const _ = require("lodash");
 
 let data = [{
         "HospitalName": "Apollo Hospital",
-        "StaffId": "DOC12345",
-        "ChronicDisease": "Asthama",
-        "Disease": "Malaria",
-        "DiseaseType": "Infectious",
-        "DiseaseCategory": "Vector Borne",
-        "DiseaseSubCategory": "Plasmodium",
-        "symptom": "Night Sheevering",
+        "StaffId": "DOC3893",
+        "ChronicDisease": "NA",
+        "Disease": "Fever",
+        "DiseaseType": "NA",
+        "DiseaseCategory": "NA",
+        "DiseaseSubCategory": "NA",
+        "symptom": "Increased body tempurature",
         "allergies": "NA",
-        "Flag": "true",
-        "weight": "87",
-        "AlcoholConsumption": "NA",
-        "SmokingHabits": "NA",
-        "medicines": "Malarium",
-        "tests": "Blood Test",
-        "HospitalFees": "5000",
-        "ConsultancyFees": "1000",
-        "PharmacyFees": "1500",
-        "AcFees": "700",
-        "claimStatus": "ACTIVE",
+        "Flag": "false",
+        "AlcoholConsumption": "Yes",
+        "SmokingHabits": "Yes",
+        "medicines": "Fes 20mg",
+        "tests": "NA",
+        "HospitalFees": "100",
+        "ConsultancyFees": "100",
+        "PharmacyFees": "100",
+        "AcFees": "0",
         "patientData": "resource:org.example.basic.PatientData#8421999884",
-        "transactionId": "ffb28b78354cd1168b2c383c179c231ebb726ec618ac0cdf121c669cf82a8bf4",
-        "Address": "413001",
+        "transactionId": "1381bf2d3b4aa9778b30b918f2e8204e89c034a87b62bc14a863b4d38846bab9",
+        "Address": "Sangli",
         "HospitalId": "HS12345",
-        "Date": "2018-12-16 14:48:50",
+        "Date": "2018-12-17 14:42:12",
         "StaffName": "DR. Shubham Koli"
     },
     {
         "HospitalName": "Apollo Hospital",
-        "StaffId": "DOC12345",
-        "ChronicDisease": "Asthama",
-        "Disease": "Malaria",
-        "DiseaseType": "Infectious",
-        "DiseaseCategory": "Vector Borne",
-        "DiseaseSubCategory": "Plasmodium",
-        "symptom": "Night Sheevering",
+        "StaffId": "DOC3893",
+        "ChronicDisease": "NA",
+        "Disease": "Maleria",
+        "DiseaseType": "M1",
+        "DiseaseCategory": "NA",
+        "DiseaseSubCategory": "NA",
+        "symptom": "Fever",
         "allergies": "NA",
         "Flag": "true",
-        "weight": "87",
-        "AlcoholConsumption": "NA",
-        "SmokingHabits": "NA",
-        "medicines": "Malarium",
-        "tests": "Blood Test",
-        "HospitalFees": "5000",
-        "ConsultancyFees": "1000",
-        "PharmacyFees": "1500",
-        "AcFees": "700",
-        "claimStatus": "OPEN",
+        "AlcoholConsumption": "No",
+        "SmokingHabits": "No",
+        "medicines": "Decold Total 20mg",
+        "tests": "Bloodtest",
+        "HospitalFees": "100",
+        "ConsultancyFees": "200",
+        "PharmacyFees": "200",
+        "AcFees": "0",
         "patientData": "resource:org.example.basic.PatientData#8421999884",
-        "transactionId": "0a7c9ac08720878fed17acf7b611945cabb60ccb077496b73bd09226885be51d",
-        "Address": "413001",
+        "transactionId": "977a5bf50b15a709020ca66e679acced498a87903e6084f7b092cdf7d855b828",
+        "Address": "Sangli",
         "HospitalId": "HS12345",
-        "Date": "2018-12-16 15:36:29",
+        "Date": "2018-12-17 14:40:36",
         "StaffName": "DR. Shubham Koli"
     },
     {
         "HospitalName": "Apollo Hospital",
-        "StaffId": "DOC12345",
-        "ChronicDisease": "Asthama",
-        "Disease": "Malaria",
-        "DiseaseType": "Infectious",
-        "DiseaseCategory": "Vector Borne",
-        "DiseaseSubCategory": "Plasmodium",
-        "symptom": "Night Sheevering",
+        "StaffId": "DOC3893",
+        "ChronicDisease": "NA",
+        "Disease": "Stroke",
+        "DiseaseType": "Cerebrovascular Disease",
+        "DiseaseCategory": "NA",
+        "DiseaseSubCategory": "NA",
+        "symptom": "Face drooping, Arm weakness, Speech difficulty",
         "allergies": "NA",
         "Flag": "true",
-        "weight": "87",
-        "AlcoholConsumption": "NA",
-        "SmokingHabits": "NA",
-        "medicines": "Malarium",
-        "tests": "Blood Test",
-        "HospitalFees": "5000",
-        "ConsultancyFees": "1000",
-        "PharmacyFees": "1500",
-        "AcFees": "700",
+        "AlcoholConsumption": "Yes",
+        "SmokingHabits": "Yes",
+        "medicines": "Antihypertensives",
+        "tests": "CT scan",
+        "HospitalFees": "200",
+        "ConsultancyFees": "500",
+        "PharmacyFees": "400",
+        "AcFees": "0",
         "patientData": "resource:org.example.basic.PatientData#8421999884",
-        "transactionId": "0b0fb8ead1f643d1e10731245ee7fae234bb1e7bb3bb6008d93518d7c473cb22",
-        "Address": "413001",
+        "transactionId": "c3aaba6ed45843f377cf17e856c85d4c219784580c1c7199570b75d6b41757ca",
+        "Address": "Sangli",
         "HospitalId": "HS12345",
-        "Date": "2018-12-16 15:36:05",
+        "Date": "2018-12-21 13:42:53",
         "StaffName": "DR. Shubham Koli"
     }
-];
-
-
+]
 
 
 let getClaims = AdharNo => {
@@ -117,6 +110,7 @@ let getClaims = AdharNo => {
 
 let addClaim = (AdharNo, TransactionID, insurerName) => {
     let ClaimDetails = {
+        _id: TransactionID,
         TransactionID: TransactionID,
         claimStatus: 'UNDER PROCESS',
         insurer: insurerName
@@ -156,7 +150,6 @@ let filterClaims = (data, AdharNo) => {
             try {
                 getClaims(AdharNo).then(doc => {
                     doc.Treatment.forEach(element => {
-
                         for (let i = 0; i < data.length; i++) {
                             if ((element.TransactionID == data[i].transactionId) && (element.claimStatus == 'UNDER PROCESS')) {
                                 data[i].claimStatus = 'UNDER PROCESS';
@@ -188,6 +181,8 @@ let filterClaims = (data, AdharNo) => {
 
 // filterClaims(data, '8421999884').then(doc => {
 //     console.log(doc);
+// }).catch(err => {
+//     console.log(err);
 // })
 
 let viewDetails = async (AdharNo, transactionId, insurer) => {
