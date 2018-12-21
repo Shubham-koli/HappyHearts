@@ -11,6 +11,7 @@ let Claim = mongoose.model("Claim", {
         trim: 1
     },
     Treatment: [{
+        _id: String,
         TransactionID: String,
         claimStatus: String,
         insurer: String
