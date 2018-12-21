@@ -104,6 +104,10 @@ const {
   detectFraud
 } = require("./Insurer/fraudDetection");
 
+const {
+  getClients
+} = require("./Insurer/getClients");
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -717,6 +721,16 @@ app.post("/fraud", (req, response) => {
     } else {
       response.send(doc);
     }
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
+app.post("/getclients", (req, response) => {
+  console.log("getting clients for insurer");
+  getClients(req.body.insurer).then(result => {
+    console.log(result);
+    response.send(result);
   }).catch(err => {
     console.log(err);
   })
