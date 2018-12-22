@@ -110,7 +110,8 @@ const {
 } = require("./Insurer/getClients");
 
 const {
-  acceptClaim
+  acceptClaim,
+  declineClaim
 } = require("./Insurer/transaction");
 
 var app = express();
@@ -455,10 +456,13 @@ app.post("/deny", (req, response, next) => {
 app.post("/patientlist", (req, response) => {
   // console.log(req.body);
   console.log(`Getting Patient's List for Hospital ${req.body[0].Hospital_ID}`);
-  console.log(req.body); - [];
+  console.log(req.body);
   async function getPatientDetails(data, response) {
     let patientDetails = [];
     let aadharID = await getGrantPatients(data);
+    if (aadharID.length == 0 || aadharID == null) {
+      response.send([]);
+    }
     aadharID.forEach(id => {
       getName(id.uid).then(name => {
         let person = {};
@@ -750,10 +754,20 @@ app.post("/getclients", (req, response) => {
 })
 
 app.post("/acceptclaim", (req, response) => {
+  console.log(req.body);
   acceptClaim(req.body).then(doc => {
-    req.sendStatus(200);
+    response.sendStatus(200);
   }).catch(err => {
-    req.sendStatus(500);
+    response.sendStatus(500);
+  });
+})
+
+app.post("/declineclaim", (req, response) => {
+  declineClaim(req.body).then(doc => {
+    console.log('Claim successfully rejected');
+    response.sendStatus(200);
+  }).catch(err => {
+    response.sendStatus(500);
   });
 })
 
