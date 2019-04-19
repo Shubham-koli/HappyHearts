@@ -1,0 +1,230 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\8e76a4a4da188cfb04aba09ea370e19f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\34fd1fdd059699d31308b495daa499ae\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.volley:volley:1.1.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\volley-1.1.0.aar\3c8dea6d7e28a253150adb3ba8d95e65\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\54293754ec3cbeaa8303a4adfc7ea1a7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\8cea469f4bfa9594508a8f69fc296015\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\5cb1338ac9d438b863ae7fa5583d9497\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\91c0432954d3b59cf76ba44951e3221f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\46d4d6f71c32baf881b4863c739ce23d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\bcbcd288e66f76873e7ba63dbb5c8dca\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\50790a6d30b16360528178af6840d65a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\6997836c1a2f3d329cba7f92ff8148aa\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\97e21ba60227fa558492a5bc6a2c747b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\ff08dc982923d49bf6c03c211d4473ce\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\e1cf70590fd903e0e05fc01094bf3450\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\0e70cee9cd83972cc310971eda5a624d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\808303dc472d6f9f3c7dda3b89c3e65e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\aec35207dcfc2814b2336b555dabefae\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\19279e10e799cc23addf4bb738efa55b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\287920d9e8692ff8dbe83ba561b8a87c\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\ef57785781011b2cdee24a33aae112bf\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\ead65c6cb3c15a52871e60772e86ae20\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a55ca0bc5f7f9a651230ba0c6ed0d99f\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\4114543bc5b0b1d001103fe3f1035495\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\8573a838d2d9eb5b1452b368e1523b5c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\cca4ea9733fc9bc702da0b3111c69d36\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\993d4c5f6be00aab997b48752952f3fd\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\390d022675623602ebd4c36836854a4f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\6f838bf63c26918e02a174897bdcde87\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\dabf855057f2e3630684f417694eb389\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\e7258355382ff553ddad86a5845ba06a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\bf64af6ae616d8599b565eee54447eed\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:3:5-34
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:4:5-65
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:4:22-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:5:22-64
+application
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:6:5-30:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\8e76a4a4da188cfb04aba09ea370e19f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\8e76a4a4da188cfb04aba09ea370e19f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.volley:volley:1.1.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\volley-1.1.0.aar\3c8dea6d7e28a253150adb3ba8d95e65\AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\volley-1.1.0.aar\3c8dea6d7e28a253150adb3ba8d95e65\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\287920d9e8692ff8dbe83ba561b8a87c\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\287920d9e8692ff8dbe83ba561b8a87c\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\ef57785781011b2cdee24a33aae112bf\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\ef57785781011b2cdee24a33aae112bf\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\287920d9e8692ff8dbe83ba561b8a87c\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:9:9-41
+	android:roundIcon
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:10:9-54
+	android:icon
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:12:9-40
+activity#com.slp.happyhearts.MainActivity
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:13:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:17:27-74
+activity#com.slp.happyhearts.patient.PatientLogin
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:20:9-57
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:20:19-55
+activity#com.slp.happyhearts.patient.MainActivityPatient
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:21:9-108
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:21:63-106
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:21:19-62
+activity#com.slp.happyhearts.doctor.DoctorLogin
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:22:9-55
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:22:19-53
+activity#com.slp.happyhearts.doctor.MainActivityDoctor
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:23:9-106
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:23:61-104
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:23:19-60
+activity#com.slp.happyhearts.doctor.PatientRecord
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:24:9-101
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:24:56-99
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:24:19-55
+activity#com.slp.happyhearts.doctor.TreatmentDetailsForDoctor
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:25:9-113
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:25:68-111
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:25:19-67
+activity#com.slp.happyhearts.doctor.AddPatientRecord
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:26:9-104
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:26:59-102
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:26:19-58
+activity#com.slp.happyhearts.doctor.OfflineImportantRecordActivity
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:27:9-118
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:27:73-116
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:27:19-72
+activity#com.slp.happyhearts.patient.TreatmentDetailsForPatient
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:28:9-71
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:28:19-69
+activity#com.slp.happyhearts.doctor.InsuranceClaimDetailsActivity
+ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:29:9-117
+	android:theme
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:29:72-115
+	android:name
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml:29:19-71
+uses-sdk
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\8e76a4a4da188cfb04aba09ea370e19f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\8e76a4a4da188cfb04aba09ea370e19f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\34fd1fdd059699d31308b495daa499ae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\34fd1fdd059699d31308b495daa499ae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.volley:volley:1.1.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\volley-1.1.0.aar\3c8dea6d7e28a253150adb3ba8d95e65\AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\volley-1.1.0.aar\3c8dea6d7e28a253150adb3ba8d95e65\AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\54293754ec3cbeaa8303a4adfc7ea1a7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\54293754ec3cbeaa8303a4adfc7ea1a7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\8cea469f4bfa9594508a8f69fc296015\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\8cea469f4bfa9594508a8f69fc296015\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\5cb1338ac9d438b863ae7fa5583d9497\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\5cb1338ac9d438b863ae7fa5583d9497\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\91c0432954d3b59cf76ba44951e3221f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\91c0432954d3b59cf76ba44951e3221f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\46d4d6f71c32baf881b4863c739ce23d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\46d4d6f71c32baf881b4863c739ce23d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\bcbcd288e66f76873e7ba63dbb5c8dca\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\bcbcd288e66f76873e7ba63dbb5c8dca\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\50790a6d30b16360528178af6840d65a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\50790a6d30b16360528178af6840d65a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\6997836c1a2f3d329cba7f92ff8148aa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\6997836c1a2f3d329cba7f92ff8148aa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\97e21ba60227fa558492a5bc6a2c747b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\97e21ba60227fa558492a5bc6a2c747b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\ff08dc982923d49bf6c03c211d4473ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\ff08dc982923d49bf6c03c211d4473ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\e1cf70590fd903e0e05fc01094bf3450\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\e1cf70590fd903e0e05fc01094bf3450\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\0e70cee9cd83972cc310971eda5a624d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\0e70cee9cd83972cc310971eda5a624d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\808303dc472d6f9f3c7dda3b89c3e65e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\808303dc472d6f9f3c7dda3b89c3e65e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\aec35207dcfc2814b2336b555dabefae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\aec35207dcfc2814b2336b555dabefae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\19279e10e799cc23addf4bb738efa55b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\19279e10e799cc23addf4bb738efa55b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\287920d9e8692ff8dbe83ba561b8a87c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\287920d9e8692ff8dbe83ba561b8a87c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\ef57785781011b2cdee24a33aae112bf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\ef57785781011b2cdee24a33aae112bf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\ead65c6cb3c15a52871e60772e86ae20\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\ead65c6cb3c15a52871e60772e86ae20\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a55ca0bc5f7f9a651230ba0c6ed0d99f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a55ca0bc5f7f9a651230ba0c6ed0d99f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\4114543bc5b0b1d001103fe3f1035495\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\4114543bc5b0b1d001103fe3f1035495\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\8573a838d2d9eb5b1452b368e1523b5c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\8573a838d2d9eb5b1452b368e1523b5c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\cca4ea9733fc9bc702da0b3111c69d36\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\cca4ea9733fc9bc702da0b3111c69d36\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\993d4c5f6be00aab997b48752952f3fd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\993d4c5f6be00aab997b48752952f3fd\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\390d022675623602ebd4c36836854a4f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\390d022675623602ebd4c36836854a4f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\6f838bf63c26918e02a174897bdcde87\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\6f838bf63c26918e02a174897bdcde87\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\dabf855057f2e3630684f417694eb389\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\dabf855057f2e3630684f417694eb389\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\e7258355382ff553ddad86a5845ba06a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\e7258355382ff553ddad86a5845ba06a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\bf64af6ae616d8599b565eee54447eed\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Pravin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\bf64af6ae616d8599b565eee54447eed\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Pravin\AndroidStudioProjects\HappyHearts\app\src\main\AndroidManifest.xml

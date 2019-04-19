@@ -1,0 +1,4 @@
+#Fri Apr 19 13:33:05 IST 2019
+base.0=C\:\\Users\\Pravin\\AndroidStudioProjects\\HappyHearts\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
