@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.slp.happyhearts">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".patient.PatientLogin"/>
+        <activity android:name=".patient.MainActivityPatient" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".doctor.DoctorLogin"/>
+        <activity android:name=".doctor.MainActivityDoctor" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".doctor.PatientRecord" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".doctor.TreatmentDetailsForDoctor" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".doctor.AddPatientRecord" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".doctor.OfflineImportantRecordActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".patient.TreatmentDetailsForPatient"/>
+        <activity android:name=".doctor.InsuranceClaimDetailsActivity" android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>

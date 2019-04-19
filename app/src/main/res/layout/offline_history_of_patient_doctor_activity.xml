@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        app:title="Offline Record"
+        app:titleTextColor="#fff"
+        app:subtitleTextColor="#fff"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:layout_height="?attr/actionBarSize" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/patient_history_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

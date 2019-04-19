@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/get_access_doctor_menu"
+            android:icon="@drawable/ic_add_access"
+            android:title="Get Access" />
+        <item
+            android:id="@+id/live_patient_doctor_menu"
+            android:icon="@drawable/ic_supervisor_account_black_24dp"
+            android:title="My Patients" />
+
+        <item
+            android:id="@+id/offline_record_menu"
+            android:icon="@drawable/ic_offline"
+            android:title="Offline Records" />
+        <item
+            android:id="@+id/logout_doctor_menu"
+            android:icon="@drawable/ic_logout"
+            android:title="Log Out" />
+    </group>
+</menu>

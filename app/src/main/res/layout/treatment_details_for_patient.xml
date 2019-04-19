@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="Disease Details"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:background="#7887a0"
+        android:textColor="#eaf0f9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/disease_tv"
+        android:layout_marginTop="10dp"
+        android:text="Disease Name :"
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/disease_type_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Disease Type : "
+        android:textColor="#0f78e0"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/disease_catagory_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Disease Category : "
+        android:textColor="#0f78e0"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/disease_sub_catagory_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Disease Subcategory : "
+        android:textColor="#0f78e0"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/chronic_disease_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Chronic Disease :"
+        android:textColor="#0f78e0"
+        android:textSize="18dp" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="Hospital Details"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:background="#7887a0"
+        android:textColor="#eaf0f9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/hospital_name_tv"
+        android:layout_marginTop="10dp"
+        android:text="Hospital Name :"
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/address_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Location :"
+        android:textColor="#0f78e0"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/staff_name_tv"
+        android:layout_marginTop="10dp"
+        android:text="Doctor/Staff Name :"
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/medicines_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Medicines : "
+        android:textColor="#0f78e0"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/date_tv"
+        android:layout_marginTop="10dp"
+        android:text="Date : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="Other Details"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:background="#7887a0"
+        android:textColor="#eaf0f9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/alcohol_consumption_tv"
+        android:layout_marginTop="10dp"
+        android:text="Alcohol Consumption : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/smoking_habit_tv"
+        android:layout_marginTop="10dp"
+        android:text="Smoking Habits : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tests_tv"
+        android:layout_marginTop="10dp"
+        android:text="Tests : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="Bill Details"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:background="#7887a0"
+        android:textColor="#eaf0f9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/consultancy_fees_tv"
+        android:layout_marginTop="10dp"
+        android:text="Consultancy Fees : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/pharmacy_fees_tv"
+        android:layout_marginTop="10dp"
+        android:text="Pharmacy Fees : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/ac_fees_tv"
+        android:layout_marginTop="10dp"
+        android:text="AC Fees : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/hospital_fees_tv"
+        android:layout_marginTop="10dp"
+        android:text="Hospital Fees : "
+        android:textSize="18dp"
+        android:textColor="#0f78e0"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="#FFF"
+        android:id="@+id/claim_insurance_bt"
+        android:background="@color/colorPrimary"
+        android:text="  Claim Insurance  "
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+</ScrollView>
