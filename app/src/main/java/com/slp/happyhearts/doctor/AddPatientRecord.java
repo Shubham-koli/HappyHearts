@@ -1,16 +1,12 @@
 
 package com.slp.happyhearts.doctor;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,11 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.slp.happyhearts.Config;
 import com.slp.happyhearts.R;
 import com.slp.happyhearts.doctor.adapters.Data;
-
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,13 +54,13 @@ public class AddPatientRecord extends AppCompatActivity implements View.OnClickL
         patient_name_tv=(TextView)findViewById(R.id.patient_name_tv);
         disease_et=(EditText)findViewById(R.id.disease_et);
         disease_type_et=(EditText)findViewById(R.id.disease_type_et);
-        disease_type_et.setOnFocusChangeListener(new CheckForNAinEditior(disease_type_et));
+        disease_type_et.setOnFocusChangeListener(new CheckForNAinEditor(disease_type_et));
         disease_catagory_et=(EditText)findViewById(R.id.disease_catagory_et);
-        disease_catagory_et.setOnFocusChangeListener(new CheckForNAinEditior(disease_catagory_et));
+        disease_catagory_et.setOnFocusChangeListener(new CheckForNAinEditor(disease_catagory_et));
         disease_sub_catagory_et=(EditText)findViewById(R.id.disease_sub_catagory_et);
-        disease_sub_catagory_et.setOnFocusChangeListener(new CheckForNAinEditior(disease_sub_catagory_et));
+        disease_sub_catagory_et.setOnFocusChangeListener(new CheckForNAinEditor(disease_sub_catagory_et));
         allergies_et=(EditText)findViewById(R.id.allergies_et);
-        allergies_et.setOnFocusChangeListener(new CheckForNAinEditior(allergies_et));
+        allergies_et.setOnFocusChangeListener(new CheckForNAinEditor(allergies_et));
         symptopms_et=(EditText)findViewById(R.id.symptopms_et);
         medicines_et=(EditText)findViewById(R.id.medicines_et);
         tests_et=(EditText)findViewById(R.id.tests_et);
@@ -81,18 +73,22 @@ public class AddPatientRecord extends AppCompatActivity implements View.OnClickL
         volleyRequestQueue = Volley.newRequestQueue(this);
         patient_name_tv.setText("Patient Name : "+Data.PATIENT_NAME);
         hospital_fees_et=(EditText)findViewById(R.id.hospital_fees_et);
-        hospital_fees_et.setOnFocusChangeListener(new CheckForZeroinEditior(hospital_fees_et));
+        hospital_fees_et.setOnFocusChangeListener(new CheckForZeroInEditor(hospital_fees_et));
         ac_fees_et=(EditText)findViewById(R.id.ac_fees_et);
-        ac_fees_et.setOnFocusChangeListener(new CheckForZeroinEditior(ac_fees_et));
+        ac_fees_et.setOnFocusChangeListener(new CheckForZeroInEditor(ac_fees_et));
         consultancy_fees_et=(EditText)findViewById(R.id.consultancy_fees_et);
-        consultancy_fees_et.setOnFocusChangeListener(new CheckForZeroinEditior(consultancy_fees_et));
+        consultancy_fees_et.setOnFocusChangeListener(new CheckForZeroInEditor(consultancy_fees_et));
         pharmacy_fees_et=(EditText)findViewById(R.id.pharmacy_fees_et);
-        pharmacy_fees_et.setOnFocusChangeListener(new CheckForZeroinEditior(pharmacy_fees_et));
+        pharmacy_fees_et.setOnFocusChangeListener(new CheckForZeroInEditor(pharmacy_fees_et));
     }
-    class CheckForNAinEditior implements View.OnFocusChangeListener
+
+    /**
+     * Checks in Edit Text control have NA string
+     */
+    class CheckForNAinEditor implements View.OnFocusChangeListener
     {
         EditText et;
-        CheckForNAinEditior(EditText et)
+        CheckForNAinEditor(EditText et)
         {
             this.et=et;
         }
@@ -111,10 +107,11 @@ public class AddPatientRecord extends AppCompatActivity implements View.OnClickL
 
         }
     }
-    class CheckForZeroinEditior implements View.OnFocusChangeListener
+
+    class CheckForZeroInEditor implements View.OnFocusChangeListener
     {
         EditText et;
-        CheckForZeroinEditior(EditText et)
+        CheckForZeroInEditor(EditText et)
         {
             this.et=et;
         }
@@ -144,6 +141,7 @@ public class AddPatientRecord extends AppCompatActivity implements View.OnClickL
             }
         return true;
     }
+
     @Override
     public void onClick(View v)
     {
@@ -188,6 +186,7 @@ public class AddPatientRecord extends AppCompatActivity implements View.OnClickL
                 }
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                 alertDialogBuilder.setTitle("Submit Record");
+
                 // set dialog message
                 alertDialogBuilder
                         .setMessage("Are you sure")
