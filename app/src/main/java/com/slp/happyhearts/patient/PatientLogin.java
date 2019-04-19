@@ -28,7 +28,7 @@ public class PatientLogin extends AppCompatActivity
             public void onClick(View v) {
                 editor = getSharedPreferences(Config.PREFERENCE_NAME, MODE_PRIVATE).edit();
 
-                ////static user details////
+                ////login with static user details////
                 editor.putString("UserID","8421999884");
                 editor.putString("NAME","Anil Kadam");
                 editor.putString("USER_TYPE","PATIENT");
