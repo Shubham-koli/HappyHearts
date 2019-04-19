@@ -1,4 +1,3 @@
-
 package com.slp.happyhearts.doctor;
 
 import android.app.AlertDialog;
@@ -13,7 +12,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,6 +26,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Activity for adding new Patient record
+ */
 public class AddPatientRecord extends AppCompatActivity implements View.OnClickListener
 {
     private TextView patient_name_tv;
